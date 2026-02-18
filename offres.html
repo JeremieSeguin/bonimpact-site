@@ -1,181 +1,735 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Offres | Bon Impact</title>
-    <meta name="description" content="3 offres pour accélérer votre croissance : cadrage stratégique, pilotage & métriques, développement commercial & growth marketing.">
+    <meta name="description"
+        content="3 offres pour accélérer votre croissance : cadrage stratégique, pilotage & métriques, développement commercial & growth marketing.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Albert+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Albert+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <!-- Page-specific styles: OFFRES -->
     <style>
         /* HERO */
-        .hero-offres         { background: var(--bleu-nuit); padding: 160px 0 80px; position: relative; overflow: hidden; text-align: center; }
-        .hero-offres::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 20% 80%, rgba(158,187,216,0.1) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 80% 30%, rgba(178,116,157,0.08) 0%, transparent 70%); }
-        .hero-offres h1      { font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px); font-weight: 800; color: var(--blanc); letter-spacing: -0.02em; margin-bottom: 16px; position: relative; z-index: 1; opacity: 0; animation: fadeUp 0.8s var(--ease-out-expo) 0.2s forwards; }
-        .hero-sub            { font-size: 18px; color: rgba(255,255,255,0.6); position: relative; z-index: 1; margin-bottom: 60px; opacity: 0; animation: fadeUp 0.8s var(--ease-out-expo) 0.35s forwards; }
+        .hero-offres {
+            background: var(--bleu-nuit);
+            padding: 160px 0 80px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-offres::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 50% at 20% 80%, rgba(158, 187, 216, 0.1) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 80% 30%, rgba(178, 116, 157, 0.08) 0%, transparent 70%);
+        }
+
+        .hero-offres h1 {
+            font-family: var(--font-display);
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 800;
+            color: var(--blanc);
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            animation: fadeUp 0.8s var(--ease-out-expo) 0.2s forwards;
+        }
+
+        .hero-sub {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.6);
+            position: relative;
+            z-index: 1;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeUp 0.8s var(--ease-out-expo) 0.35s forwards;
+        }
 
         /* TABS */
-        .tabs-container      { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; position: relative; z-index: 1; }
-        .offer-tab           { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 36px 28px; cursor: pointer; transition: all 0.5s var(--ease-out-expo); text-align: center; opacity: 0; animation: fadeUp 0.8s var(--ease-out-expo) forwards; }
-        .offer-tab:nth-child(1) { animation-delay: 0.4s; }
-        .offer-tab:nth-child(2) { animation-delay: 0.5s; }
-        .offer-tab:nth-child(3) { animation-delay: 0.6s; }
-        .offer-tab:hover     { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
-        .offer-tab.active    { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.2); }
-        .tab-icon            { margin-bottom: 20px; }
-        .tab-icon svg        { margin: 0 auto; }
-        .offer-tab h2        { font-family: var(--font-display); font-size: 16px; font-weight: 700; line-height: 1.35; text-transform: uppercase; letter-spacing: 0.04em; }
-        .text-blue           { color: var(--bleu-clair); }
-        .text-pink           { color: var(--mauve-light); }
-        .text-green          { color: var(--vert-light); }
-        .offer-tab.active::after { content: ''; display: block; width: 40px; height: 3px; border-radius: 2px; margin: 16px auto 0; }
-        .offer-tab[data-tab="strategie"].active::after { background: var(--bleu-clair); }
-        .offer-tab[data-tab="pilotage"].active::after { background: var(--mauve); }
-        .offer-tab[data-tab="commerce"].active::after { background: var(--vert); }
+        .tabs-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .offer-tab {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 36px 28px;
+            cursor: pointer;
+            transition: all 0.5s var(--ease-out-expo);
+            text-align: center;
+            opacity: 0;
+            animation: fadeUp 0.8s var(--ease-out-expo) forwards;
+        }
+
+        .offer-tab:nth-child(1) {
+            animation-delay: 0.4s;
+        }
+
+        .offer-tab:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .offer-tab:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .offer-tab:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .offer-tab.active {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab-icon {
+            margin-bottom: 20px;
+        }
+
+        .tab-icon svg {
+            margin: 0 auto;
+        }
+
+        .offer-tab h2 {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.35;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .text-blue {
+            color: var(--bleu-clair);
+        }
+
+        .text-pink {
+            color: var(--mauve-light);
+        }
+
+        .text-green {
+            color: var(--vert-light);
+        }
+
+        .offer-tab.active::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            border-radius: 2px;
+            margin: 16px auto 0;
+        }
+
+        .offer-tab[data-tab="strategie"].active::after {
+            background: var(--bleu-clair);
+        }
+
+        .offer-tab[data-tab="pilotage"].active::after {
+            background: var(--mauve);
+        }
+
+        .offer-tab[data-tab="commerce"].active::after {
+            background: var(--vert);
+        }
 
         /* DETAILS */
-        .offer-details       { padding: 80px 0 120px; background: var(--creme); }
-        .offer-content       { display: none; opacity: 0; transform: translateY(20px); transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo); }
-        .offer-content.active { display: block; opacity: 1; transform: translateY(0); }
+        .offer-details {
+            padding: 80px 0 120px;
+            background: var(--creme);
+        }
 
-        .content-header      { margin-bottom: 48px; padding-bottom: 32px; border-bottom: 2px solid var(--gris-moyen); }
-        .content-header h1   { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; line-height: 1.2; margin-bottom: 24px; }
-        .content-header h1.text-blue { color: var(--bleu-clair); }
-        .content-header h1.text-pink { color: var(--mauve); }
-        .content-header h1.text-green { color: var(--vert); }
+        .offer-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+        }
 
-        .main-desc           { max-width: 800px; }
-        .main-desc p         { font-size: 16px; line-height: 1.8; color: var(--texte); margin-bottom: 14px; }
-        .main-desc strong    { color: var(--bleu-fonce); font-weight: 700; }
+        .offer-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        .intro-summary       { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
-        .intro-summary-card  { background: var(--blanc); border: 1px solid var(--gris-moyen); border-radius: 14px; padding: 22px 24px; transition: all 0.3s var(--ease-out-expo); }
-        .intro-summary-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(46,83,104,0.06); }
-        .intro-summary-card h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mauve); margin-bottom: 8px; }
-        .intro-summary-card p { font-size: 14px; line-height: 1.6; color: var(--texte); margin: 0; }
+        .content-header {
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 2px solid var(--gris-moyen);
+        }
 
-        .details-grid        { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px; }
-        .detail-column h3    { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--bleu-fonce); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--vert); display: inline-block; }
-        .detail-column h3 + h3 { margin-top: 40px; }
-        .detail-column ul    { padding: 0; margin: 0 0 32px 0; }
-        .detail-column li    { font-size: 15px; line-height: 1.75; color: var(--texte); margin-bottom: 12px; padding-left: 22px; position: relative; }
-        .detail-column li::before { content: ''; position: absolute; left: 0; top: 11px; width: 8px; height: 8px; border-radius: 50%; }
-        .border-blue .detail-column li::before { background: var(--bleu-clair); }
-        .border-pink .detail-column li::before { background: var(--mauve); }
-        .border-green .detail-column li::before { background: var(--vert); }
+        .content-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
 
-        .final-note          { background: var(--gris-clair); border-left: 4px solid var(--mauve); padding: 20px 24px; border-radius: 0 12px 12px 0; font-size: 15px; line-height: 1.7; color: var(--texte); margin-top: 24px; }
-        .final-note strong   { color: var(--bleu-fonce); font-weight: 700; }
+        .content-header h1.text-blue {
+            color: var(--bleu-clair);
+        }
 
-        .offer-content.border-blue .content-header { border-bottom-color: var(--bleu-clair); }
-        .offer-content.border-pink .content-header { border-bottom-color: var(--mauve); }
-        .offer-content.border-green .content-header { border-bottom-color: var(--vert); }
+        .content-header h1.text-pink {
+            color: var(--mauve);
+        }
 
-        .offer-cta           { text-align: center; margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--gris-moyen); }
-        .offer-cta p         { font-size: 18px; color: var(--texte); margin-bottom: 20px; }
-        .btn-offer           { display: inline-block; font-family: var(--font-body); font-size: 14px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 18px 40px; border-radius: 60px; color: var(--blanc); transition: all 0.4s var(--ease-out-expo); }
-        .btn-offer:hover     { transform: translateY(-3px); }
-        .btn-offer-blue      { background: var(--bleu-clair); box-shadow: 0 6px 20px rgba(158,187,216,0.35); }
-        .btn-offer-blue:hover { background: #85a9c8; }
-        .btn-offer-pink      { background: var(--mauve); box-shadow: 0 6px 20px rgba(178,116,157,0.35); }
-        .btn-offer-pink:hover { background: var(--mauve-deep); }
-        .btn-offer-green     { background: var(--vert); box-shadow: 0 6px 20px rgba(169,186,133,0.35); color: var(--bleu-nuit); }
-        .btn-offer-green:hover { background: var(--vert-deep); }
+        .content-header h1.text-green {
+            color: var(--vert);
+        }
+
+        .main-desc {
+            max-width: 800px;
+        }
+
+        .main-desc p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--texte);
+            margin-bottom: 14px;
+        }
+
+        .main-desc strong {
+            color: var(--bleu-fonce);
+            font-weight: 700;
+        }
+
+        .intro-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .intro-summary-card {
+            background: var(--blanc);
+            border: 1px solid var(--gris-moyen);
+            border-radius: 14px;
+            padding: 22px 24px;
+            transition: all 0.3s var(--ease-out-expo);
+        }
+
+        .intro-summary-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(46, 83, 104, 0.06);
+        }
+
+        .intro-summary-card h4 {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--mauve);
+            margin-bottom: 8px;
+        }
+
+        .intro-summary-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--texte);
+            margin: 0;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-top: 48px;
+        }
+
+        .detail-column h3 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--bleu-fonce);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--vert);
+            display: inline-block;
+        }
+
+        .detail-column h3+h3 {
+            margin-top: 40px;
+        }
+
+        .detail-column ul {
+            padding: 0;
+            margin: 0 0 32px 0;
+        }
+
+        .detail-column li {
+            font-size: 15px;
+            line-height: 1.75;
+            color: var(--texte);
+            margin-bottom: 12px;
+            padding-left: 22px;
+            position: relative;
+        }
+
+        .detail-column li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .border-blue .detail-column li::before {
+            background: var(--bleu-clair);
+        }
+
+        .border-pink .detail-column li::before {
+            background: var(--mauve);
+        }
+
+        .border-green .detail-column li::before {
+            background: var(--vert);
+        }
+
+        .final-note {
+            background: var(--gris-clair);
+            border-left: 4px solid var(--mauve);
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--texte);
+            margin-top: 24px;
+        }
+
+        .final-note strong {
+            color: var(--bleu-fonce);
+            font-weight: 700;
+        }
+
+        .offer-content.border-blue .content-header {
+            border-bottom-color: var(--bleu-clair);
+        }
+
+        .offer-content.border-pink .content-header {
+            border-bottom-color: var(--mauve);
+        }
+
+        .offer-content.border-green .content-header {
+            border-bottom-color: var(--vert);
+        }
+
+        .offer-cta {
+            text-align: center;
+            margin-top: 56px;
+            padding-top: 40px;
+            border-top: 1px solid var(--gris-moyen);
+        }
+
+        .offer-cta p {
+            font-size: 18px;
+            color: var(--texte);
+            margin-bottom: 20px;
+        }
+
+        .btn-offer {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 18px 40px;
+            border-radius: 60px;
+            color: var(--blanc);
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .btn-offer:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-offer-blue {
+            background: var(--bleu-clair);
+            box-shadow: 0 6px 20px rgba(158, 187, 216, 0.35);
+        }
+
+        .btn-offer-blue:hover {
+            background: #85a9c8;
+        }
+
+        .btn-offer-pink {
+            background: var(--mauve);
+            box-shadow: 0 6px 20px rgba(178, 116, 157, 0.35);
+        }
+
+        .btn-offer-pink:hover {
+            background: var(--mauve-deep);
+        }
+
+        .btn-offer-green {
+            background: var(--vert);
+            box-shadow: 0 6px 20px rgba(169, 186, 133, 0.35);
+            color: var(--bleu-nuit);
+        }
+
+        .btn-offer-green:hover {
+            background: var(--vert-deep);
+        }
 
         /* Responsive */
-        @media (max-width: 1024px) { .tabs-container { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } .details-grid { grid-template-columns: 1fr; gap: 36px; } .intro-summary { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) { .hero-offres { padding: 120px 0 60px; } .offer-tab { padding: 24px 20px; } .tab-icon svg { width: 48px; height: 48px; } }
+        @media (max-width: 1024px) {
+            .tabs-container {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin: 0 auto;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .intro-summary {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-offres {
+                padding: 120px 0 60px;
+            }
+
+            .offer-tab {
+                padding: 24px 20px;
+            }
+
+            .tab-icon svg {
+                width: 48px;
+                height: 48px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <!-- NAV -->
-    <nav class="nav" id="nav"><div class="container"><div class="nav-inner">
-        <a href="index.html"><img src="https://cdn.prod.website-files.com/65e71f17cbbc2797a671d780/693ada6b9c05f075757613ef_Logo%20Bon%20Impact.svg" alt="Bon Impact" class="nav-logo"></a>
-        <ul class="nav-links" id="navLinks"><li><a href="index.html" class="nav-link">Accueil</a></li><li><a href="a-propos.html" class="nav-link">À propos</a></li><li><a href="offres.html" class="nav-link active">Offres</a></li><li><a href="mailto:jeremie.seguin@bonimpact.bzh" class="nav-cta">Discutons</a></li></ul>
-        <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
-    </div></div></nav>
+    <nav class="nav" id="nav">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="index.html"><img src="Logo_Bon_impact.svg" alt="Bon Impact" class="nav-logo"></a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+                    <li><a href="offres.html" class="nav-link active">Offres</a></li>
+                    <li><a href="mailto:jeremie.seguin@bonimpact.bzh" class="nav-cta">Discutons</a></li>
+                </ul>
+                <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <!-- HERO -->
-    <section class="hero-offres"><div class="container">
-        <h1>Mes Offres</h1>
-        <p class="hero-sub">Cliquez sur une offre pour découvrir les détails</p>
-        <div class="tabs-container">
-            <div class="offer-tab active" data-tab="strategie" onclick="switchTab('strategie')"><div class="tab-icon"><svg width="64" height="64" viewBox="0 0 24 24" fill="#9EBBD8"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg></div><h2 class="text-blue">Cadrage stratégique et passage à l'échelle</h2></div>
-            <div class="offer-tab" data-tab="pilotage" onclick="switchTab('pilotage')"><div class="tab-icon"><svg width="64" height="64" viewBox="0 0 24 24" fill="#B2749D"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/></svg></div><h2 class="text-pink">Pilotage et métriques</h2></div>
-            <div class="offer-tab" data-tab="commerce" onclick="switchTab('commerce')"><div class="tab-icon"><svg width="64" height="64" viewBox="0 0 24 24" fill="#A9BA85"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></div><h2 class="text-green">Développement commercial et Growth marketing</h2></div>
+    <section class="hero-offres">
+        <div class="container">
+            <h1>Mes Offres</h1>
+            <p class="hero-sub">Cliquez sur une offre pour découvrir les détails</p>
+            <div class="tabs-container">
+                <div class="offer-tab active" data-tab="strategie" onclick="switchTab('strategie')">
+                    <div class="tab-icon"><svg width="64" height="64" viewBox="0 0 24 24" fill="#9EBBD8">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" />
+                        </svg></div>
+                    <h2 class="text-blue">Cadrage stratégique et passage à l'échelle</h2>
+                </div>
+                <div class="offer-tab" data-tab="pilotage" onclick="switchTab('pilotage')">
+                    <div class="tab-icon"><svg width="64" height="64" viewBox="0 0 24 24" fill="#B2749D">
+                            <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z" />
+                        </svg></div>
+                    <h2 class="text-pink">Pilotage et métriques</h2>
+                </div>
+                <div class="offer-tab" data-tab="commerce" onclick="switchTab('commerce')">
+                    <div class="tab-icon"><svg width="64" height="64" viewBox="0 0 24 24" fill="#A9BA85">
+                            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
+                        </svg></div>
+                    <h2 class="text-green">Développement commercial et Growth marketing</h2>
+                </div>
+            </div>
         </div>
-    </div></section>
+    </section>
 
     <!-- OFFER DETAILS -->
-    <section class="offer-details"><div class="container">
+    <section class="offer-details">
+        <div class="container">
 
-        <!-- STRATÉGIE -->
-        <div id="content-strategie" class="offer-content active border-blue">
-            <div class="content-header"><h1 class="text-blue">Cadrage stratégique et passage à l'échelle</h1><div class="main-desc"><p><strong>Accompagnement stratégique pour structurer et sécuriser votre projet.</strong></p><p>Cette offre s'adresse aux structures qui souhaitent lancer une activité ou franchir un cap. Elle vise à clarifier le concept, définir précisément le problème adressé et formaliser l'impact recherché.</p></div>
-                <div class="intro-summary"><div class="intro-summary-card"><h4>Pour qui ?</h4><p>Projets en lancement, structures qui changent d'échelle.</p></div><div class="intro-summary-card"><h4>Avantages</h4><p>Vision claire, business model solide, cap stratégique fiable.</p></div><div class="intro-summary-card"><h4>Ce que je fais</h4><p>Analyse cible, business model, business plan, objectifs, feuille de route.</p></div></div>
+            <!-- STRATÉGIE -->
+            <div id="content-strategie" class="offer-content active border-blue">
+                <div class="content-header">
+                    <h1 class="text-blue">Cadrage stratégique et passage à l'échelle</h1>
+                    <div class="main-desc">
+                        <p><strong>Accompagnement stratégique pour structurer et sécuriser votre projet.</strong></p>
+                        <p>Cette offre s'adresse aux structures qui souhaitent lancer une activité ou franchir un cap.
+                            Elle vise à clarifier le concept, définir précisément le problème adressé et formaliser
+                            l'impact recherché.</p>
+                    </div>
+                    <div class="intro-summary">
+                        <div class="intro-summary-card">
+                            <h4>Pour qui ?</h4>
+                            <p>Projets en lancement, structures qui changent d'échelle.</p>
+                        </div>
+                        <div class="intro-summary-card">
+                            <h4>Avantages</h4>
+                            <p>Vision claire, business model solide, cap stratégique fiable.</p>
+                        </div>
+                        <div class="intro-summary-card">
+                            <h4>Ce que je fais</h4>
+                            <p>Analyse cible, business model, business plan, objectifs, feuille de route.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="details-grid">
+                    <div class="detail-column">
+                        <h3>Bénéfices clés</h3>
+                        <ul>
+                            <li>Clarifier votre impact, votre proposition de valeur et votre positionnement</li>
+                            <li>Vérifier que vous répondez à un problème réel et prioritaire</li>
+                            <li>Sécuriser votre modèle économique avant d'investir temps et ressources</li>
+                            <li>Disposer d'une vision stratégique claire pour décider et passer à l'échelle</li>
+                            <li>Aligner impact, viabilité économique et objectifs de développement</li>
+                        </ul>
+                        <h3>Ce que vous obtenez</h3>
+                        <ul>
+                            <li>Formalisation claire du concept et du problème adressé</li>
+                            <li>Analyse de la cible (besoins, usages, attentes, contraintes)</li>
+                            <li>Modèle économique structuré (sources de revenus, coûts, hypothèses)</li>
+                            <li>Business plan synthétique et opérationnel</li>
+                            <li>Objectifs stratégiques clairs, priorisés et actionnables</li>
+                            <li>Recommandations concrètes pour le lancement ou le changement d'échelle</li>
+                        </ul>
+                    </div>
+                    <div class="detail-column">
+                        <h3>Format de l'accompagnement</h3>
+                        <ul>
+                            <li>Diagnostic initial (échanges, analyse de l'existant, cadrage)</li>
+                            <li>Ateliers de travail structurés (stratégie, cible, modèle économique)</li>
+                            <li>Travail d'enquête terrain si nécessaire (entretiens, tests, retours utilisateurs)</li>
+                            <li>Itérations et ajustements en fonction des enseignements</li>
+                            <li>Restitution claire avec supports exploitables immédiatement</li>
+                        </ul>
+                        <div class="final-note">👉 L'accompagnement est <strong>sur mesure</strong>, adapté au niveau de
+                            maturité du projet et aux enjeux spécifiques de la structure.</div>
+                    </div>
+                </div>
+                <div class="offer-cta">
+                    <p>Cette offre vous intéresse ? Discutons-en.</p><a href="mailto:jeremie.seguin@bonimpact.bzh"
+                        class="btn-offer btn-offer-blue">Prendre rendez-vous</a>
+                </div>
             </div>
-            <div class="details-grid">
-                <div class="detail-column"><h3>Bénéfices clés</h3><ul><li>Clarifier votre proposition de valeur et votre positionnement</li><li>Vérifier que vous répondez à un problème réel et prioritaire</li><li>Sécuriser votre modèle économique avant d'investir temps et ressources</li><li>Disposer d'une vision stratégique claire pour décider et passer à l'échelle</li><li>Aligner impact, viabilité économique et objectifs de développement</li></ul><h3>Ce que vous obtenez</h3><ul><li>Formalisation claire du concept et du problème adressé</li><li>Analyse de la cible (besoins, usages, attentes, contraintes)</li><li>Modèle économique structuré (sources de revenus, coûts, hypothèses)</li><li>Business plan synthétique et opérationnel</li><li>Objectifs stratégiques clairs, priorisés et actionnables</li><li>Recommandations concrètes pour le lancement ou le changement d'échelle</li></ul></div>
-                <div class="detail-column"><h3>Format de l'accompagnement</h3><ul><li>Diagnostic initial (échanges, analyse de l'existant, cadrage)</li><li>Ateliers de travail structurés (stratégie, cible, modèle économique)</li><li>Travail d'enquête terrain si nécessaire (entretiens, tests, retours utilisateurs)</li><li>Itérations et ajustements en fonction des enseignements</li><li>Restitution claire avec supports exploitables immédiatement</li></ul><div class="final-note">👉 L'accompagnement est <strong>sur mesure</strong>, adapté au niveau de maturité du projet et aux enjeux spécifiques de la structure.</div></div>
+
+            <!-- PILOTAGE -->
+            <div id="content-pilotage" class="offer-content border-pink">
+                <div class="content-header">
+                    <h1 class="text-pink">Pilotage et métriques</h1>
+                    <div class="main-desc">
+                        <p><strong>Accompagnement à la mise en place et au pilotage des métriques de performance et
+                                d'impact.</strong></p>
+                        <p>Cette offre vise à aider les structures à définir des indicateurs pertinents, choisir et
+                            paramétrer les outils de mesure adaptés, et structurer un suivi fiable de l'activité et de
+                            l'impact.</p>
+                    </div>
+                    <div class="intro-summary">
+                        <div class="intro-summary-card">
+                            <h4>Pour qui ?</h4>
+                            <p>Structures qui veulent piloter sérieusement.</p>
+                        </div>
+                        <div class="intro-summary-card">
+                            <h4>Avantages</h4>
+                            <p>Pilotage fiable, outils adaptés, visibilité sur la performance.</p>
+                        </div>
+                        <div class="intro-summary-card">
+                            <h4>Ce que je fais</h4>
+                            <p>KPI, tableaux de bord, choix d'outils, suivi régulier.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="details-grid">
+                    <div class="detail-column">
+                        <h3>Bénéfices clés</h3>
+                        <ul>
+                            <li>Disposer d'indicateurs utiles, alignés avec vos objectifs stratégiques</li>
+                            <li>Mieux comprendre l'activité, les usages et l'impact réel</li>
+                            <li>Fiabiliser le reporting interne et externe</li>
+                            <li>Piloter la performance et ajuster les actions en continu</li>
+                            <li>Gagner du temps grâce à des outils adaptés et bien paramétrés</li>
+                        </ul>
+                        <h3>Ce que vous obtenez</h3>
+                        <ul>
+                            <li>Définition des KPI clés (activité, impact, performance)</li>
+                            <li>Objectifs chiffrés clairs et mesurables</li>
+                            <li>Sélection et paramétrage des outils de mesure et d'analyse</li>
+                            <li>Création de tableaux de bord opérationnels</li>
+                            <li>Modèles de rapports de suivi (pilotage, financeurs, partenaires)</li>
+                            <li>Recommandations concrètes basées sur l'analyse des données</li>
+                        </ul>
+                    </div>
+                    <div class="detail-column">
+                        <h3>Format de l'accompagnement</h3>
+                        <ul>
+                            <li>Diagnostic initial (outils et pratiques existantes)</li>
+                            <li>Ateliers de cadrage des indicateurs et objectifs</li>
+                            <li>Paramétrage des outils et mise en place des tableaux de bord</li>
+                            <li>Formation à la lecture et à l'usage des métriques</li>
+                            <li>Suivi et ajustements selon l'évolution de l'activité</li>
+                        </ul>
+                        <div class="final-note">👉 Accompagnement <strong>sur mesure</strong>, adapté au niveau de
+                            maturité de la structure et à ses enjeux d'impact.</div>
+                    </div>
+                </div>
+                <div class="offer-cta">
+                    <p>Cette offre vous intéresse ? Discutons-en.</p><a href="mailto:jeremie.seguin@bonimpact.bzh"
+                        class="btn-offer btn-offer-pink">Prendre rendez-vous</a>
+                </div>
             </div>
-            <div class="offer-cta"><p>Cette offre vous intéresse ? Discutons-en.</p><a href="mailto:jeremie.seguin@bonimpact.bzh" class="btn-offer btn-offer-blue">Prendre rendez-vous</a></div>
+
+            <!-- COMMERCE -->
+            <div id="content-commerce" class="offer-content border-green">
+                <div class="content-header">
+                    <h1 class="text-green">Développement commercial et Growth marketing</h1>
+                    <div class="main-desc">
+                        <p><strong>Développer votre activité de manière structurée et mesurable.</strong></p>
+                        <p>Cette offre s'adresse aux structures qui souhaitent développer leur activité de manière
+                            structurée et mesurable. Elle vise à transformer une stratégie définie en actions
+                            commerciales concrètes, capables de générer de la traction, des opportunités qualifiées et
+                            du revenu.</p>
+                    </div>
+                    <div class="intro-summary">
+                        <div class="intro-summary-card">
+                            <h4>Pour qui ?</h4>
+                            <p>Structures qui veulent accélérer.</p>
+                        </div>
+                        <div class="intro-summary-card">
+                            <h4>Avantages</h4>
+                            <p>Acquisition, ventes et activation renforcées.</p>
+                        </div>
+                        <div class="intro-summary-card">
+                            <h4>Ce que je fais</h4>
+                            <p>Prospection, CRM, Ads, AARRR, webinaires, newsletters, contenus.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="details-grid">
+                    <div class="detail-column">
+                        <h3>Bénéfices clés</h3>
+                        <ul>
+                            <li>Générer des opportunités commerciales qualifiées</li>
+                            <li>Structurer et sécuriser le développement des ventes</li>
+                            <li>Améliorer l'acquisition, l'activation et la conversion</li>
+                            <li>Mettre en place des actions reproductibles et mesurables</li>
+                            <li>Gagner en efficacité commerciale sans dispersion</li>
+                        </ul>
+                        <h3>Ce que vous obtenez</h3>
+                        <ul>
+                            <li>Définition des cibles et priorisation des segments</li>
+                            <li>Structuration du pipeline commercial et du suivi des opportunités</li>
+                            <li>Mise en place ou optimisation du CRM</li>
+                            <li>Déploiement d'actions de prospection ciblées</li>
+                            <li>Campagnes d'acquisition (Ads, contenus, newsletters)</li>
+                            <li>Organisation et animation de webinaires ou démonstrations</li>
+                            <li>Appui au closing et à la négociation</li>
+                        </ul>
+                    </div>
+                    <div class="detail-column">
+                        <h3>Format de l'accompagnement</h3>
+                        <ul>
+                            <li>Diagnostic des pratiques commerciales existantes</li>
+                            <li>Plan d'actions opérationnel et priorisé</li>
+                            <li>Mise en œuvre directe des actions (ou co-pilotage)</li>
+                            <li>Suivi des résultats et ajustements continus</li>
+                            <li>Transmission des méthodes et outils pour pérenniser</li>
+                        </ul>
+                        <div class="final-note">👉 Accompagnement <strong>pragmatique</strong>, orienté résultats,
+                            adapté aux ressources et à la maturité de la structure.</div>
+                    </div>
+                </div>
+                <div class="offer-cta">
+                    <p>Cette offre vous intéresse ? Discutons-en.</p><a href="mailto:jeremie.seguin@bonimpact.bzh"
+                        class="btn-offer btn-offer-green">Prendre rendez-vous</a>
+                </div>
+            </div>
+
         </div>
-
-        <!-- PILOTAGE -->
-        <div id="content-pilotage" class="offer-content border-pink">
-            <div class="content-header"><h1 class="text-pink">Pilotage et métriques</h1><div class="main-desc"><p><strong>Accompagnement à la mise en place et au pilotage des métriques de performance et d'impact.</strong></p><p>Cette offre vise à aider les structures à définir des indicateurs pertinents, choisir et paramétrer les outils de mesure adaptés, et structurer un suivi fiable de l'activité et de l'impact.</p></div>
-                <div class="intro-summary"><div class="intro-summary-card"><h4>Pour qui ?</h4><p>Structures qui veulent piloter sérieusement.</p></div><div class="intro-summary-card"><h4>Avantages</h4><p>Pilotage fiable, outils adaptés, visibilité sur la performance.</p></div><div class="intro-summary-card"><h4>Ce que je fais</h4><p>KPI, tableaux de bord, choix d'outils, suivi régulier.</p></div></div>
-            </div>
-            <div class="details-grid">
-                <div class="detail-column"><h3>Bénéfices clés</h3><ul><li>Disposer d'indicateurs utiles, alignés avec vos objectifs stratégiques</li><li>Mieux comprendre l'activité, les usages et l'impact réel</li><li>Fiabiliser le reporting interne et externe</li><li>Piloter la performance et ajuster les actions en continu</li><li>Gagner du temps grâce à des outils adaptés et bien paramétrés</li></ul><h3>Ce que vous obtenez</h3><ul><li>Définition des KPI clés (activité, impact, performance)</li><li>Objectifs chiffrés clairs et mesurables</li><li>Sélection et paramétrage des outils de mesure et d'analyse</li><li>Création de tableaux de bord opérationnels</li><li>Modèles de rapports de suivi (pilotage, financeurs, partenaires)</li><li>Recommandations concrètes basées sur l'analyse des données</li></ul></div>
-                <div class="detail-column"><h3>Format de l'accompagnement</h3><ul><li>Diagnostic initial (outils et pratiques existantes)</li><li>Ateliers de cadrage des indicateurs et objectifs</li><li>Paramétrage des outils et mise en place des tableaux de bord</li><li>Formation à la lecture et à l'usage des métriques</li><li>Suivi et ajustements selon l'évolution de l'activité</li></ul><div class="final-note">👉 Accompagnement <strong>sur mesure</strong>, adapté au niveau de maturité de la structure et à ses enjeux d'impact.</div></div>
-            </div>
-            <div class="offer-cta"><p>Cette offre vous intéresse ? Discutons-en.</p><a href="mailto:jeremie.seguin@bonimpact.bzh" class="btn-offer btn-offer-pink">Prendre rendez-vous</a></div>
-        </div>
-
-        <!-- COMMERCE -->
-        <div id="content-commerce" class="offer-content border-green">
-            <div class="content-header"><h1 class="text-green">Développement commercial et Growth marketing</h1><div class="main-desc"><p><strong>Développer votre activité de manière structurée et mesurable.</strong></p><p>Cette offre s'adresse aux structures qui souhaitent développer leur activité de manière structurée et mesurable. Elle vise à transformer une stratégie définie en actions commerciales concrètes, capables de générer de la traction, des opportunités qualifiées et du revenu.</p></div>
-                <div class="intro-summary"><div class="intro-summary-card"><h4>Pour qui ?</h4><p>Structures qui veulent accélérer.</p></div><div class="intro-summary-card"><h4>Avantages</h4><p>Acquisition, ventes et activation renforcées.</p></div><div class="intro-summary-card"><h4>Ce que je fais</h4><p>Prospection, CRM, Ads, AARRR, webinaires, newsletters, contenus.</p></div></div>
-            </div>
-            <div class="details-grid">
-                <div class="detail-column"><h3>Bénéfices clés</h3><ul><li>Générer des opportunités commerciales qualifiées</li><li>Structurer et sécuriser le développement des ventes</li><li>Améliorer l'acquisition, l'activation et la conversion</li><li>Mettre en place des actions reproductibles et mesurables</li><li>Gagner en efficacité commerciale sans dispersion</li></ul><h3>Ce que vous obtenez</h3><ul><li>Définition des cibles et priorisation des segments</li><li>Structuration du pipeline commercial et du suivi des opportunités</li><li>Mise en place ou optimisation du CRM</li><li>Déploiement d'actions de prospection ciblées</li><li>Campagnes d'acquisition (Ads, contenus, newsletters)</li><li>Organisation et animation de webinaires ou démonstrations</li><li>Appui au closing et à la négociation</li></ul></div>
-                <div class="detail-column"><h3>Format de l'accompagnement</h3><ul><li>Diagnostic des pratiques commerciales existantes</li><li>Plan d'actions opérationnel et priorisé</li><li>Mise en œuvre directe des actions (ou co-pilotage)</li><li>Suivi des résultats et ajustements continus</li><li>Transmission des méthodes et outils pour pérenniser</li></ul><div class="final-note">👉 Accompagnement <strong>pragmatique</strong>, orienté résultats, adapté aux ressources et à la maturité de la structure.</div></div>
-            </div>
-            <div class="offer-cta"><p>Cette offre vous intéresse ? Discutons-en.</p><a href="mailto:jeremie.seguin@bonimpact.bzh" class="btn-offer btn-offer-green">Prendre rendez-vous</a></div>
-        </div>
-
-    </div></section>
+    </section>
 
     <!-- FOOTER -->
-    <footer><div class="container"><div class="footer-grid">
-        <div><img src="https://cdn.prod.website-files.com/65e71f17cbbc2797a671d780/693ada6b9c05f075757613ef_Logo%20Bon%20Impact.svg" alt="Bon Impact" class="footer-logo"><p>Ensemble, donnons de l'impact à vos actions commerciales.</p></div>
-        <div><h4>Navigation</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="a-propos.html">À propos</a></li><li><a href="offres.html">Offres</a></li></ul></div>
-        <div><h4>Contact</h4><ul><li>Jérémie SEGUIN</li><li><a href="mailto:jeremie.seguin@bonimpact.bzh">jeremie.seguin@bonimpact.bzh</a></li><li><a href="https://www.linkedin.com/in/jeremieseguin/" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
-    </div><div class="footer-bottom"><p>© 2025 Bon Impact. Tous droits réservés.</p></div></div></footer>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div><img
+                        src="https://cdn.prod.website-files.com/65e71f17cbbc2797a671d780/693ada6b9c05f075757613ef_Logo%20Bon%20Impact.svg"
+                        alt="Bon Impact" class="footer-logo">
+                    <p>Ensemble, donnons de l'impact à vos actions commerciales.</p>
+                </div>
+                <div>
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="a-propos.html">À propos</a></li>
+                        <li><a href="offres.html">Offres</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>Jérémie SEGUIN</li>
+                        <li><a href="mailto:jeremie.seguin@bonimpact.bzh">jeremie.seguin@bonimpact.bzh</a></li>
+                        <li><a href="https://www.linkedin.com/in/jeremieseguin/" target="_blank"
+                                rel="noopener">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Bon Impact. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-    (function () {
-        'use strict';
-        /* Nav glassmorphism */
-        var nav = document.getElementById('nav');
-        window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 60); });
+        (function () {
+            'use strict';
+            /* Nav glassmorphism */
+            var nav = document.getElementById('nav');
+            window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 60); });
 
-        /* Tab switching */
-        window.switchTab = function (tabName) {
-            document.querySelectorAll('.offer-content').forEach(function (c) { c.classList.remove('active'); });
-            document.querySelectorAll('.offer-tab').forEach(function (t) { t.classList.remove('active'); });
-            document.getElementById('content-' + tabName).classList.add('active');
-            document.querySelector('[data-tab="' + tabName + '"]').classList.add('active');
-            setTimeout(function () {
-                document.querySelector('.offer-details').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
-        };
-    })();
+            /* Tab switching */
+            window.switchTab = function (tabName) {
+                document.querySelectorAll('.offer-content').forEach(function (c) { c.classList.remove('active'); });
+                document.querySelectorAll('.offer-tab').forEach(function (t) { t.classList.remove('active'); });
+                document.getElementById('content-' + tabName).classList.add('active');
+                document.querySelector('[data-tab="' + tabName + '"]').classList.add('active');
+                setTimeout(function () {
+                    document.querySelector('.offer-details').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            };
+        })();
     </script>
 </body>
+
 </html>

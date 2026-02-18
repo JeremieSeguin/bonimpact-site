@@ -1,195 +1,817 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À Propos | Bon Impact</title>
-    <meta name="description" content="Jérémie Seguin, freelance en développement commercial. 10 ans d'expérience, +20 structures accompagnées.">
+    <meta name="description"
+        content="Jérémie Seguin, freelance en développement commercial. 10 ans d'expérience, +20 structures accompagnées.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Albert+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Albert+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <!-- Page-specific styles: À PROPOS -->
     <style>
         /* HERO */
-        .hero-about          { min-height: 85vh; display: flex; align-items: center; background: var(--bleu-nuit); position: relative; overflow: hidden; padding: 140px 0 100px; }
-        .hero-about::before  { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 10% 80%, rgba(169,186,133,0.12) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 90% 20%, rgba(178,116,157,0.1) 0%, transparent 70%); }
-        .hero-about-grid     { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 80px; align-items: center; position: relative; z-index: 2; }
+        .hero-about {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            background: var(--bleu-nuit);
+            position: relative;
+            overflow: hidden;
+            padding: 140px 0 100px;
+        }
 
-        .hero-photo-wrapper  { position: relative; }
-        .hero-photo-wrapper::before { content: ''; position: absolute; top: 20px; left: 20px; right: -20px; bottom: -20px; background: var(--mauve); opacity: 0.12; border-radius: 20px; z-index: 0; }
-        .hero-photo          { width: 100%; border-radius: 20px; box-shadow: 0 32px 72px rgba(0,0,0,0.3); position: relative; z-index: 1; opacity: 0; animation: fadeUp 0.9s var(--ease-out-expo) 0.2s forwards; }
+        .hero-about::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 60% at 10% 80%, rgba(169, 186, 133, 0.12) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 90% 20%, rgba(178, 116, 157, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-about-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-photo-wrapper {
+            position: relative;
+        }
+
+        .hero-photo-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            background: var(--mauve);
+            opacity: 0.12;
+            border-radius: 20px;
+            z-index: 0;
+        }
+
+        .hero-photo {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 32px 72px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            animation: fadeUp 0.9s var(--ease-out-expo) 0.2s forwards;
+        }
 
         /* Intro cards */
-        .intro-cards         { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
-        .intro-card          { background: rgba(255,255,255,0.07); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 24px 22px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.4s var(--ease-out-expo); opacity: 0; animation: fadeUp 0.8s var(--ease-out-expo) forwards; }
-        .intro-card:nth-child(1) { animation-delay: 0.3s; }
-        .intro-card:nth-child(2) { animation-delay: 0.4s; }
-        .intro-card:nth-child(3) { animation-delay: 0.5s; }
-        .intro-card:nth-child(4) { animation-delay: 0.6s; }
-        .intro-card:hover    { transform: translateY(-4px); background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); }
-        .intro-card h3       { font-family: var(--font-body); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
-        .intro-card p, .intro-card li { color: var(--blanc); font-size: 14px; opacity: 0.85; line-height: 1.6; margin: 0; }
-        .intro-card ul       { padding: 0; }
-        .intro-card li::before { content: '\2192\0020'; color: var(--vert); font-weight: 700; }
+        .intro-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
 
-        .card-blue h3 { color: var(--bleu-clair); }  .card-pink h3 { color: var(--mauve-light); }  .card-green h3 { color: var(--vert-light); }
-        .card-blue { border-left: 3px solid var(--bleu-clair); }  .card-pink { border-left: 3px solid var(--mauve); }  .card-green { border-left: 3px solid var(--vert); }
+        .intro-card {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 24px 22px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s var(--ease-out-expo);
+            opacity: 0;
+            animation: fadeUp 0.8s var(--ease-out-expo) forwards;
+        }
 
-        .connection-phrase   { background: rgba(178,116,157,0.15); border-left: 4px solid var(--mauve); padding: 24px 28px; border-radius: 12px; opacity: 0; animation: fadeUp 0.8s var(--ease-out-expo) 0.7s forwards; }
-        .connection-phrase p { color: var(--blanc); font-size: 18px; font-style: italic; font-weight: 500; margin: 0; line-height: 1.6; }
+        .intro-card:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .intro-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .intro-card:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .intro-card:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .intro-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .intro-card h3 {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+
+        .intro-card p,
+        .intro-card li {
+            color: var(--blanc);
+            font-size: 14px;
+            opacity: 0.85;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .intro-card ul {
+            padding: 0;
+        }
+
+        .intro-card li::before {
+            content: '\2192\0020';
+            color: var(--vert);
+            font-weight: 700;
+        }
+
+        .card-blue h3 {
+            color: var(--bleu-clair);
+        }
+
+        .card-pink h3 {
+            color: var(--mauve-light);
+        }
+
+        .card-green h3 {
+            color: var(--vert-light);
+        }
+
+        .card-blue {
+            border-left: 3px solid var(--bleu-clair);
+        }
+
+        .card-pink {
+            border-left: 3px solid var(--mauve);
+        }
+
+        .card-green {
+            border-left: 3px solid var(--vert);
+        }
+
+        .connection-phrase {
+            background: rgba(178, 116, 157, 0.15);
+            border-left: 4px solid var(--mauve);
+            padding: 24px 28px;
+            border-radius: 12px;
+            opacity: 0;
+            animation: fadeUp 0.8s var(--ease-out-expo) 0.7s forwards;
+        }
+
+        .connection-phrase p {
+            color: var(--blanc);
+            font-size: 18px;
+            font-style: italic;
+            font-weight: 500;
+            margin: 0;
+            line-height: 1.6;
+        }
 
         /* PARCOURS */
-        .parcours            { padding: 120px 0; background: var(--gris-clair); }
-        .timeline            { margin-top: 72px; position: relative; padding-left: 52px; }
-        .timeline::before    { content: ''; position: absolute; left: 9px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--mauve) 0%, var(--vert) 50%, var(--bleu-clair) 100%); }
+        .parcours {
+            padding: 120px 0;
+            background: var(--gris-clair);
+        }
 
-        .tl-item             { position: relative; margin-bottom: 48px; background: var(--blanc); padding: 40px 44px; border-radius: 18px; border: 1px solid var(--gris-moyen); transition: all 0.4s var(--ease-out-expo); }
-        .tl-item:hover       { transform: translateX(6px); box-shadow: 0 12px 36px rgba(46,83,104,0.08); border-color: var(--mauve); }
-        .tl-item::before     { content: ''; position: absolute; left: -52px; top: 44px; width: 18px; height: 18px; background: var(--creme); border: 3px solid var(--mauve); border-radius: 50%; z-index: 1; }
-        .tl-dates            { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: var(--mauve); color: var(--blanc); padding: 6px 16px; border-radius: 20px; margin-bottom: 16px; }
-        .tl-item > h2        { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--bleu-fonce); line-height: 1.3; margin-bottom: 4px; }
-        .tl-company          { font-size: 17px; font-weight: 700; color: var(--vert); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; }
-        .tl-item > p         { font-size: 15px; line-height: 1.8; color: var(--texte); margin-bottom: 12px; }
-        .tl-link             { color: var(--mauve); font-weight: 600; font-size: 14px; border-bottom: 1px solid rgba(178,116,157,0.3); transition: color 0.3s ease; }
-        .tl-link:hover       { color: var(--vert); border-color: var(--vert); }
+        .timeline {
+            margin-top: 72px;
+            position: relative;
+            padding-left: 52px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--mauve) 0%, var(--vert) 50%, var(--bleu-clair) 100%);
+        }
+
+        .tl-item {
+            position: relative;
+            margin-bottom: 48px;
+            background: var(--blanc);
+            padding: 40px 44px;
+            border-radius: 18px;
+            border: 1px solid var(--gris-moyen);
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .tl-item:hover {
+            transform: translateX(6px);
+            box-shadow: 0 12px 36px rgba(46, 83, 104, 0.08);
+            border-color: var(--mauve);
+        }
+
+        .tl-item::before {
+            content: '';
+            position: absolute;
+            left: -52px;
+            top: 44px;
+            width: 18px;
+            height: 18px;
+            background: var(--creme);
+            border: 3px solid var(--mauve);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .tl-dates {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: var(--mauve);
+            color: var(--blanc);
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .tl-item>h2 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--bleu-fonce);
+            line-height: 1.3;
+            margin-bottom: 4px;
+        }
+
+        .tl-company {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--vert);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 16px;
+        }
+
+        .tl-item>p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--texte);
+            margin-bottom: 12px;
+        }
+
+        .tl-link {
+            color: var(--mauve);
+            font-weight: 600;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(178, 116, 157, 0.3);
+            transition: color 0.3s ease;
+        }
+
+        .tl-link:hover {
+            color: var(--vert);
+            border-color: var(--vert);
+        }
 
         /* Detail blocks */
-        .tl-detail-block     { margin-top: 28px; padding-top: 24px; border-top: 1px dashed var(--gris-moyen); }
-        .tl-detail-block h3  { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--bleu-fonce); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; }
-        .tl-detail-block h4  { font-family: var(--font-body); font-size: 14px; font-weight: 700; color: var(--vert); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 20px; margin-bottom: 10px; }
-        .tl-detail-block p   { font-size: 15px; line-height: 1.75; color: var(--texte); margin-bottom: 10px; }
-        .tl-detail-block ul  { padding-left: 0; margin: 12px 0; }
-        .tl-detail-block li  { font-size: 14px; line-height: 1.7; color: var(--texte); margin-bottom: 8px; padding-left: 20px; position: relative; }
-        .tl-detail-block li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background: var(--vert); border-radius: 50%; }
-        .tl-detail-block li ul { margin-left: 16px; margin-top: 6px; }
-        .tl-detail-block li li::before { background: var(--bleu-clair); width: 5px; height: 5px; }
+        .tl-detail-block {
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px dashed var(--gris-moyen);
+        }
+
+        .tl-detail-block h3 {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--bleu-fonce);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 16px;
+        }
+
+        .tl-detail-block h4 {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--vert);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .tl-detail-block p {
+            font-size: 15px;
+            line-height: 1.75;
+            color: var(--texte);
+            margin-bottom: 10px;
+        }
+
+        .tl-detail-block ul {
+            padding-left: 0;
+            margin: 12px 0;
+        }
+
+        .tl-detail-block li {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--texte);
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .tl-detail-block li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--vert);
+            border-radius: 50%;
+        }
+
+        .tl-detail-block li ul {
+            margin-left: 16px;
+            margin-top: 6px;
+        }
+
+        .tl-detail-block li li::before {
+            background: var(--bleu-clair);
+            width: 5px;
+            height: 5px;
+        }
 
         /* Impact metrics */
-        .impact-grid         { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin: 20px 0; }
-        .impact-metric       { background: var(--gris-clair); padding: 20px; border-radius: 12px; text-align: center; border: 1px solid var(--gris-moyen); transition: all 0.3s var(--ease-out-expo); }
-        .impact-metric:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(46,83,104,0.08); }
-        .metric-number       { font-family: var(--font-display); font-size: 28px; font-weight: 800; color: var(--mauve); line-height: 1; margin-bottom: 6px; }
-        .metric-label        { font-size: 12px; font-weight: 600; color: var(--texte); opacity: 0.7; line-height: 1.4; }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .impact-metric {
+            background: var(--gris-clair);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--gris-moyen);
+            transition: all 0.3s var(--ease-out-expo);
+        }
+
+        .impact-metric:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(46, 83, 104, 0.08);
+        }
+
+        .metric-number {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--mauve);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--texte);
+            opacity: 0.7;
+            line-height: 1.4;
+        }
 
         /* Role sub-blocks */
-        .role-block          { margin-top: 32px; padding-top: 24px; border-top: 2px dashed rgba(46,83,104,0.1); }
-        .role-dates-badge    { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: var(--bleu-clair); color: var(--blanc); padding: 5px 14px; border-radius: 12px; margin-bottom: 12px; }
-        .role-block h3       { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--bleu-fonce); margin-bottom: 12px; }
-        .role-block h4       { font-family: var(--font-body); font-size: 14px; font-weight: 700; color: var(--vert); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 16px; margin-bottom: 8px; }
-        .role-block p        { font-size: 15px; line-height: 1.75; color: var(--texte); margin-bottom: 8px; }
-        .role-block p strong { color: var(--bleu-fonce); font-weight: 700; }
-        .role-block ul       { padding-left: 0; margin: 10px 0; }
-        .role-block li       { font-size: 14px; line-height: 1.7; color: var(--texte); margin-bottom: 6px; padding-left: 20px; position: relative; }
-        .role-block li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background: var(--bleu-clair); border-radius: 50%; }
-        .tl-highlight        { display: inline-block; background: rgba(169,186,133,0.15); color: var(--vert-deep); font-weight: 700; padding: 6px 14px; border-radius: 8px; font-size: 14px; margin-top: 10px; }
+        .role-block {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 2px dashed rgba(46, 83, 104, 0.1);
+        }
+
+        .role-dates-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: var(--bleu-clair);
+            color: var(--blanc);
+            padding: 5px 14px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .role-block h3 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--bleu-fonce);
+            margin-bottom: 12px;
+        }
+
+        .role-block h4 {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--vert);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+        .role-block p {
+            font-size: 15px;
+            line-height: 1.75;
+            color: var(--texte);
+            margin-bottom: 8px;
+        }
+
+        .role-block p strong {
+            color: var(--bleu-fonce);
+            font-weight: 700;
+        }
+
+        .role-block ul {
+            padding-left: 0;
+            margin: 10px 0;
+        }
+
+        .role-block li {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--texte);
+            margin-bottom: 6px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .role-block li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--bleu-clair);
+            border-radius: 50%;
+        }
+
+        .tl-highlight {
+            display: inline-block;
+            background: rgba(169, 186, 133, 0.15);
+            color: var(--vert-deep);
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
 
         /* Responsive */
-        @media (max-width: 1024px) { .hero-about-grid { grid-template-columns: 1fr; gap: 48px; } .hero-photo-wrapper { max-width: 380px; margin: 0 auto; } }
-        @media (max-width: 768px) { .intro-cards { grid-template-columns: 1fr; } .timeline { padding-left: 36px; } .tl-item { padding: 28px 24px; } .tl-item::before { left: -36px; } .impact-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 1024px) {
+            .hero-about-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .hero-photo-wrapper {
+                max-width: 380px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .intro-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 36px;
+            }
+
+            .tl-item {
+                padding: 28px 24px;
+            }
+
+            .tl-item::before {
+                left: -36px;
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
     </style>
 </head>
+
 <body>
     <!-- NAV -->
-    <nav class="nav" id="nav"><div class="container"><div class="nav-inner">
-        <a href="index.html"><img src="https://cdn.prod.website-files.com/65e71f17cbbc2797a671d780/693ada6b9c05f075757613ef_Logo%20Bon%20Impact.svg" alt="Bon Impact" class="nav-logo"></a>
-        <ul class="nav-links" id="navLinks"><li><a href="index.html" class="nav-link">Accueil</a></li><li><a href="a-propos.html" class="nav-link active">À propos</a></li><li><a href="offres.html" class="nav-link">Offres</a></li><li><a href="mailto:jeremie.seguin@bonimpact.bzh" class="nav-cta">Discutons</a></li></ul>
-        <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
-    </div></div></nav>
+    <nav class="nav" id="nav">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="index.html"><img src="Logo_Bon_impact.svg" alt="Bon Impact" class="nav-logo"></a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="a-propos.html" class="nav-link active">À propos</a></li>
+                    <li><a href="offres.html" class="nav-link">Offres</a></li>
+                    <li><a href="mailto:jeremie.seguin@bonimpact.bzh" class="nav-cta">Discutons</a></li>
+                </ul>
+                <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <!-- HERO -->
-    <section class="hero-about"><div class="container"><div class="hero-about-grid">
-        <div class="hero-photo-wrapper"><img src="Jeremie_a_propos.png" alt="Jérémie Seguin" class="hero-photo"></div>
-        <div>
-            <div class="intro-cards">
-                <div class="intro-card card-blue"><h3>Mon Rôle</h3><p>Aider les structures à clarifier leur stratégie et à exécuter.</p></div>
-                <div class="intro-card card-pink"><h3>Mes Valeurs</h3><p>Transition écologique, inclusion et optimisme.</p></div>
-                <div class="intro-card card-green"><h3>Mon Approche</h3><ul><li>Orientée résultats</li><li>Adaptée à chaque projet</li></ul></div>
-                <div class="intro-card card-blue"><h3>+ de 20 clients</h3><p>accompagnés dans leur développement.</p></div>
+    <section class="hero-about">
+        <div class="container">
+            <div class="hero-about-grid">
+                <div class="hero-photo-wrapper"><img src="Jeremie_a_propos.png" alt="Jérémie Seguin" class="hero-photo">
+                </div>
+                <div>
+                    <div class="intro-cards">
+                        <div class="intro-card card-blue">
+                            <h3>Mon Rôle</h3>
+                            <p>Aider les structures à clarifier leur stratégie et à exécuter.</p>
+                        </div>
+                        <div class="intro-card card-pink">
+                            <h3>Mes Valeurs</h3>
+                            <p>Transition écologique, inclusion et optimisme.</p>
+                        </div>
+                        <div class="intro-card card-green">
+                            <h3>Mon Approche</h3>
+                            <ul>
+                                <li>Orientée résultats</li>
+                                <li>Adaptée à chaque projet</li>
+                            </ul>
+                        </div>
+                        <div class="intro-card card-blue">
+                            <h3>+ de 20 clients</h3>
+                            <p>accompagnés dans leur développement.</p>
+                        </div>
+                    </div>
+                    <div class="connection-phrase">
+                        <p>"Construisons ensemble un avenir commercial durable et impactant."</p>
+                    </div>
+                </div>
             </div>
-            <div class="connection-phrase"><p>"Construisons ensemble un avenir commercial durable et impactant."</p></div>
         </div>
-    </div></div></section>
+    </section>
 
     <!-- PARCOURS -->
-    <section class="parcours"><div class="container">
-        <div class="section-label">Mon parcours</div>
-        <div class="section-title">10 ans d'expérience terrain</div>
-        <div class="section-subtitle">Du développement logiciel au business development, un parcours forgé par l'action et orienté impact.</div>
+    <section class="parcours">
+        <div class="container">
+            <div class="section-label">Mon parcours</div>
+            <div class="section-title">10 ans d'expérience terrain</div>
+            <div class="section-subtitle">Du développement logiciel au business development, un parcours forgé par
+                l'action et orienté impact.</div>
 
-        <div class="timeline">
-            <!-- MON DIAG ARTIF -->
-            <div class="tl-item reveal">
-                <span class="tl-dates">Déc 2022 — Aujourd'hui</span>
-                <h2>Chargé de déploiement</h2>
-                <div class="tl-company">Mon Diag Artif</div>
-                <div class="tl-detail-block"><h3>Contexte</h3><p>Mon Diagnostic Artificialisation est un service public numérique du Ministère de la transition écologique destiné en priorité aux collectivités et aux services de l'État.</p><a href="https://mondiagartif.beta.gouv.fr/" target="_blank" rel="noopener" class="tl-link">Découvrir la plateforme →</a></div>
-                <div class="tl-detail-block">
-                    <h3>Mesures d'impacts</h3>
-                    <h4>Impacts d'usages</h4>
-                    <div class="impact-grid">
-                        <div class="impact-metric"><div class="metric-number">50 000</div><div class="metric-label">visites par an</div></div>
-                        <div class="impact-metric"><div class="metric-number">170 000</div><div class="metric-label">diagnostics réalisés</div></div>
-                        <div class="impact-metric"><div class="metric-number">22 000</div><div class="metric-label">diagnostics téléchargés</div></div>
-                        <div class="impact-metric"><div class="metric-number">100%</div><div class="metric-label">des DDT(M) utilisatrices</div></div>
+            <div class="timeline">
+                <!-- MON DIAG ARTIF -->
+                <div class="tl-item reveal">
+                    <span class="tl-dates">Déc 2022 — Aujourd'hui</span>
+                    <h2>Chargé de déploiement</h2>
+                    <div class="tl-company">Mon Diag Artif</div>
+                    <div class="tl-detail-block">
+                        <h3>Contexte</h3>
+                        <p>Mon Diagnostic Artificialisation est un service public numérique du Ministère de la
+                            transition écologique destiné en priorité aux collectivités et aux services de l'État.</p><a
+                            href="https://mondiagartif.beta.gouv.fr/" target="_blank" rel="noopener"
+                            class="tl-link">Découvrir la plateforme →</a>
                     </div>
-                    <ul><li>77% des communes diagnostiquées</li><li>100% des EPCI diagnostiqués</li></ul>
-                    <h4>Impact mesurable (à partir de juin 2025)</h4><p>Plus de 1 500 collectivités avec la compétence urbanisme ayant activé au moins un levier de sobriété foncière.</p>
-                    <h4>Impact récolté via verbatim utilisateurs</h4><p><strong>+2 000 hectares</strong> préservés de l'urbanisation recensés à date.</p>
+                    <div class="tl-detail-block">
+                        <h3>Mesures d'impacts</h3>
+                        <h4>Impacts d'usages</h4>
+                        <div class="impact-grid">
+                            <div class="impact-metric">
+                                <div class="metric-number">50 000</div>
+                                <div class="metric-label">visites par an</div>
+                            </div>
+                            <div class="impact-metric">
+                                <div class="metric-number">170 000</div>
+                                <div class="metric-label">diagnostics réalisés</div>
+                            </div>
+                            <div class="impact-metric">
+                                <div class="metric-number">22 000</div>
+                                <div class="metric-label">diagnostics téléchargés</div>
+                            </div>
+                            <div class="impact-metric">
+                                <div class="metric-number">100%</div>
+                                <div class="metric-label">des DDT(M) utilisatrices</div>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>77% des communes diagnostiquées</li>
+                            <li>100% des EPCI diagnostiqués</li>
+                        </ul>
+                        <h4>Impact mesurable (à partir de juin 2025)</h4>
+                        <p>Plus de 1 500 collectivités avec la compétence urbanisme ayant activé au moins un levier de
+                            sobriété foncière.</p>
+                        <h4>Impact récolté via verbatim utilisateurs</h4>
+                        <p><strong>+2 000 hectares</strong> préservés de l'urbanisation recensés à date.</p>
+                    </div>
+                    <div class="tl-detail-block">
+                        <h3>Tâches réalisées</h3>
+                        <ul>
+                            <li>Accompagnement à la définition de l'objectif d'impact</li>
+                            <li>Mise en place et suivi des indicateurs d'impact</li>
+                            <li>Configuration du CRM</li>
+                            <li>Prospection auprès de collectivités et services de l'État</li>
+                            <li>Création de partenariats (ADEME, FNCAUE, CNFPT, AMRF, Idéalco)</li>
+                            <li>Animation de webinaires</li>
+                            <li>Rédaction de newsletters</li>
+                            <li>Community management LinkedIn</li>
+                            <li>Assistance utilisateurs</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="tl-detail-block"><h3>Tâches réalisées</h3><ul><li>Accompagnement à la définition de l'objectif d'impact</li><li>Mise en place et suivi des indicateurs d'impact</li><li>Configuration du CRM</li><li>Prospection auprès de collectivités et services de l'État</li><li>Création de partenariats (ADEME, FNCAUE, CNFPT, AMRF, Idéalco)</li><li>Animation de webinaires</li><li>Rédaction de newsletters</li><li>Community management LinkedIn</li><li>Assistance utilisateurs</li></ul></div>
-            </div>
 
-            <!-- BREIZHICOOP -->
-            <div class="tl-item reveal">
-                <span class="tl-dates">Nov 2020 — Aujourd'hui</span>
-                <h2>Engagement coopératif</h2>
-                <div class="tl-company">Breizhicoop</div>
-                <p>Breizhicoop est une épicerie coopérative et participative. L'objectif est de mieux manger, mieux s'alimenter en respectant les producteurs et en limitant l'impact écologique.</p>
-                <p>L'épicerie rassemble plus de 1 100 coopérateurs et a généré plus de 550 000 € en 2024.</p>
-                <a href="https://breizhicoop.fr" target="_blank" rel="noopener" class="tl-link">Découvrir Breizhicoop →</a>
-                <div class="role-block"><span class="role-dates-badge">Avril 2022 — Avril 2023</span><h3>Trésorier</h3><h4>Contexte</h4><p>Sur cette période, la coopérative a cherché à déménager. Les dynamiques portaient donc sur la mise en place de budgets prévisionnels à partir d'hypothèses tangibles à présenter aux collectivités et aux banques.</p><h4>Tâches réalisées</h4><ul><li>Paiements fournisseurs</li><li>Budget prévisionnel sur 3 ans</li><li>Recherche de subventions</li><li>Rédaction de réponse à un AMI de Rennes Métropole</li><li>Préparation et co-animation de l'assemblée générale</li><li>Rendez-vous financiers</li></ul></div>
-                <div class="role-block"><span class="role-dates-badge">Fév 2021 — Déc 2022</span><h3>Membre du comité de suivi salarié</h3><h4>Contexte</h4><p>À Breizhicoop, les 2 salariées n'ont pas de n+1. C'est un groupe de quelques personnes qui, volontairement, endossent ce rôle. Cela permet de centraliser et fluidifier le partage d'informations entre l'ensemble des coopérateurs et les salariées.</p><h4>Tâches réalisées</h4><ul><li>Administration du personnel</li><li>Suivi de carrière</li><li>Entretiens professionnels et bilans annuels</li></ul></div>
-            </div>
+                <!-- BREIZHICOOP -->
+                <div class="tl-item reveal">
+                    <span class="tl-dates">Nov 2020 — Aujourd'hui</span>
+                    <h2>Engagement coopératif</h2>
+                    <div class="tl-company">Breizhicoop</div>
+                    <p>Breizhicoop est une épicerie coopérative et participative. L'objectif est de mieux manger, mieux
+                        s'alimenter en respectant les producteurs et en limitant l'impact écologique.</p>
+                    <p>L'épicerie rassemble plus de 1 100 coopérateurs et a généré plus de 550 000 € en 2024.</p>
+                    <a href="https://breizhicoop.fr" target="_blank" rel="noopener" class="tl-link">Découvrir
+                        Breizhicoop →</a>
+                    <div class="role-block"><span class="role-dates-badge">Nov 2020 — Aujourd'hui</span>
+                        <h3>Bénévole épicier</h3>
+                        <h4>Contexte</h4>
+                        <p>Comme c'est une épicerie participative, les coopérateurices
+                            s'acquittent de 3h/mois de créneaux d'épicier.</p>
+                        <h4>Tâches réalisées</h4>
+                        <ul>
+                            <li>Contrôle des températures</li>
+                            <li>Réassorts de rayons</li>
+                            <li>Facing et merchandising</li>
+                        </ul>
+                    </div>
+                    <div class="role-block"><span class="role-dates-badge">Avril 2022 — Avril 2023</span>
+                        <h3>Trésorier</h3>
+                        <h4>Contexte</h4>
+                        <p>Sur cette période, la coopérative a cherché à déménager. Les dynamiques portaient donc sur la
+                            mise en place de budgets prévisionnels à partir d'hypothèses tangibles à présenter aux
+                            collectivités et aux banques.</p>
+                        <h4>Tâches réalisées</h4>
+                        <ul>
+                            <li>Paiements fournisseurs</li>
+                            <li>Budget prévisionnel sur 3 ans</li>
+                            <li>Recherche de subventions</li>
+                            <li>Rédaction de réponse à un AMI de Rennes Métropole</li>
+                            <li>Préparation et co-animation de l'assemblée générale</li>
+                            <li>Rendez-vous financiers</li>
+                        </ul>
+                    </div>
+                    <div class="role-block"><span class="role-dates-badge">Fév 2021 — Déc 2022</span>
+                        <h3>Membre du comité de suivi salarié</h3>
+                        <h4>Contexte</h4>
+                        <p>À Breizhicoop, les 2 salariées n'ont pas de n+1. C'est un groupe de quelques personnes qui,
+                            volontairement, endossent ce rôle. Cela permet de centraliser et fluidifier le partage
+                            d'informations entre l'ensemble des coopérateurs et les salariées.</p>
+                        <h4>Tâches réalisées</h4>
+                        <ul>
+                            <li>Administration du personnel</li>
+                            <li>Suivi de carrière</li>
+                            <li>Entretiens professionnels et bilans annuels</li>
+                        </ul>
+                    </div>
+                </div>
 
-            <!-- ALTEN -->
-            <div class="tl-item reveal">
-                <span class="tl-dates">Sep 2015 — Nov 2020</span>
-                <h2>Business Manager</h2>
-                <div class="tl-company">ALTEN</div>
-                <p>ALTEN est un des leaders mondiaux du conseil et de l'ingénierie en technologie.</p>
-                <a href="https://www.alten.fr" target="_blank" rel="noopener" class="tl-link">Découvrir ALTEN →</a>
-                <div class="role-block"><span class="role-dates-badge">Juil 2019 — Nov 2020</span><h3>Responsable d'agence</h3><h4>Contexte</h4><p>Chez ALTEN, les objectifs sont établis sur la croissance financière de l'agence portée par le recrutement de consultants et leur positionnement sur des projets clients.</p><p>Division Système d'Information, Réseaux et Télécom. Consultants expérimentés de 0 à 15 ans.</p><h4>Résultat</h4><span class="tl-highlight">Équipe de 15 à 25 consultants · 20+ clients</span><h4>Tâches réalisées</h4><ul><li>Développement de portefeuille client et tenue d'un CRM</li><li>Cold emailing, cold phoning</li><li>Rendez-vous de prospection</li><li>Closing</li><li>Recrutements de consultants</li><li>Management et suivi carrière</li><li>Suivi financier de l'agence et pilotage</li></ul></div>
-                <div class="role-block"><span class="role-dates-badge">Déc 2018 — Juin 2019</span><h3>Ingénieur d'affaires</h3><h4>Résultat</h4><span class="tl-highlight">Équipe de 4 à 15 consultants · ~10 clients</span></div>
-                <div class="role-block"><span class="role-dates-badge">Mars 2017 — Nov 2018</span><h3>Product Owner</h3><h4>Mission 2 — Groupe Orange</h4><p>Refonte de l'authentification unique SSO</p><ul><li>Animation d'ateliers avec les utilisateurs finaux</li><li>Rédaction d'User Story</li><li>Recette fonctionnelle</li></ul><h4>Mission 1 — Arkéa Banque</h4><p>Relooking d'une application "Banque en ligne" pour les professionnels</p><ul><li>Animation d'ateliers</li><li>Maquettage</li><li>Rédaction d'User Story</li><li>Recette fonctionnelle</li></ul></div>
-                <div class="role-block"><span class="role-dates-badge">Sep 2015 — Fév 2017</span><h3>Consultant / Développeur Logiciel</h3><h4>Mission — Orange Business Services</h4><ul><li>Développement de nouvelles fonctionnalités</li><li>Support client N1, N2 et N3</li></ul></div>
+                <!-- ALTEN -->
+                <div class="tl-item reveal">
+                    <span class="tl-dates">Sep 2015 — Nov 2020</span>
+                    <h2>Business Manager</h2>
+                    <div class="tl-company">ALTEN</div>
+                    <p>ALTEN est un des leaders mondiaux du conseil et de l'ingénierie en technologie.</p>
+                    <a href="https://www.alten.fr" target="_blank" rel="noopener" class="tl-link">Découvrir ALTEN →</a>
+                    <div class="role-block"><span class="role-dates-badge">Juil 2019 — Nov 2020</span>
+                        <h3>Responsable d'agence</h3>
+                        <h4>Contexte</h4>
+                        <p>Chez ALTEN, les objectifs sont établis sur la croissance financière de l'agence portée par le
+                            recrutement de consultants et leur positionnement sur des projets clients.</p>
+                        <p>Division Système d'Information, Réseaux et Télécom. Consultants expérimentés de 0 à 15 ans.
+                        </p>
+                        <h4>Résultat</h4><span class="tl-highlight">Équipe de 15 à 25 consultants · 20+ clients</span>
+                        <h4>Tâches réalisées</h4>
+                        <ul>
+                            <li>Développement de portefeuille client et tenue d'un CRM</li>
+                            <li>Cold emailing, cold phoning</li>
+                            <li>Rendez-vous de prospection</li>
+                            <li>Closing</li>
+                            <li>Recrutements de consultants</li>
+                            <li>Management et suivi carrière</li>
+                            <li>Suivi financier de l'agence et pilotage</li>
+                        </ul>
+                    </div>
+                    <div class="role-block"><span class="role-dates-badge">Déc 2018 — Juin 2019</span>
+                        <h3>Ingénieur d'affaires</h3>
+                        <h4>Résultat</h4><span class="tl-highlight">Équipe de 4 à 15 consultants · ~10 clients</span>
+                    </div>
+                    <div class="role-block"><span class="role-dates-badge">Mars 2017 — Nov 2018</span>
+                        <h3>Consultant / Product Owner</h3>
+                        <h4>Mission 2 — Groupe Orange</h4>
+                        <p>Refonte de l'authentification unique SSO</p>
+                        <ul>
+                            <li>Animation d'ateliers avec les utilisateurs finaux</li>
+                            <li>Rédaction d'User Story</li>
+                            <li>Recette fonctionnelle</li>
+                        </ul>
+                        <h4>Mission 1 — Arkéa Banque</h4>
+                        <p>Relooking d'une application "Banque en ligne" pour les professionnels</p>
+                        <ul>
+                            <li>Animation d'ateliers</li>
+                            <li>Maquettage</li>
+                            <li>Rédaction d'User Story</li>
+                            <li>Recette fonctionnelle</li>
+                        </ul>
+                    </div>
+                    <div class="role-block"><span class="role-dates-badge">Sep 2015 — Fév 2017</span>
+                        <h3>Consultant / Développeur Logiciel</h3>
+                        <h4>Mission — Orange Business Services</h4>
+                        <ul>
+                            <li>Développement de nouvelles fonctionnalités</li>
+                            <li>Support client N1, N2 et N3</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </div></section>
+    </section>
 
     <!-- CTA -->
-    <section class="cta-section"><div class="container"><div class="cta-inner reveal"><h2>Prêt à donner de l'impact à votre activité ?</h2><p>Discutons de votre projet lors d'un appel gratuit de 30 minutes. Sans engagement.</p><a href="mailto:jeremie.seguin@bonimpact.bzh" class="btn-cta">Réserver mon appel gratuit</a></div></div></section>
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-inner reveal">
+                <h2>Prêt à donner de l'impact à votre activité ?</h2>
+                <p>Discutons de votre projet lors d'un appel gratuit de 30 minutes. Sans engagement.</p><a
+                    href="mailto:jeremie.seguin@bonimpact.bzh" class="btn-cta">Réserver mon appel gratuit</a>
+            </div>
+        </div>
+    </section>
 
     <!-- FOOTER -->
-    <footer><div class="container"><div class="footer-grid">
-        <div><img src="https://cdn.prod.website-files.com/65e71f17cbbc2797a671d780/693ada6b9c05f075757613ef_Logo%20Bon%20Impact.svg" alt="Bon Impact" class="footer-logo"><p>Ensemble, donnons de l'impact à vos actions commerciales.</p></div>
-        <div><h4>Navigation</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="a-propos.html">À propos</a></li><li><a href="offres.html">Offres</a></li></ul></div>
-        <div><h4>Contact</h4><ul><li>Jérémie SEGUIN</li><li><a href="mailto:jeremie.seguin@bonimpact.bzh">jeremie.seguin@bonimpact.bzh</a></li><li><a href="https://www.linkedin.com/in/jeremieseguin/" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
-    </div><div class="footer-bottom"><p>© 2025 Bon Impact. Tous droits réservés.</p></div></div></footer>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div><img
+                        src="https://cdn.prod.website-files.com/65e71f17cbbc2797a671d780/693ada6b9c05f075757613ef_Logo%20Bon%20Impact.svg"
+                        alt="Bon Impact" class="footer-logo">
+                    <p>Ensemble, donnons de l'impact à vos actions commerciales.</p>
+                </div>
+                <div>
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="a-propos.html">À propos</a></li>
+                        <li><a href="offres.html">Offres</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>Jérémie SEGUIN</li>
+                        <li><a href="mailto:jeremie.seguin@bonimpact.bzh">jeremie.seguin@bonimpact.bzh</a></li>
+                        <li><a href="https://www.linkedin.com/in/jeremieseguin/" target="_blank"
+                                rel="noopener">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Bon Impact. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-    (function () {
-        'use strict';
-        var nav = document.getElementById('nav');
-        window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 60); });
-        var observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry, i) {
-                if (entry.isIntersecting) { setTimeout(function () { entry.target.classList.add('visible'); }, i * 100); observer.unobserve(entry.target); }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
-    })();
+        (function () {
+            'use strict';
+            var nav = document.getElementById('nav');
+            window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 60); });
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry, i) {
+                    if (entry.isIntersecting) { setTimeout(function () { entry.target.classList.add('visible'); }, i * 100); observer.unobserve(entry.target); }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+        })();
     </script>
 </body>
+
 </html>
