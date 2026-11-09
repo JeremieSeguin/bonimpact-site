@@ -8,7 +8,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta name="description"
-        content="3 offres pour accélérer votre croissance : cadrage stratégique, pilotage & métriques, développement commercial & growth marketing.">
+        content="4 offres pour accélérer votre croissance : cadrage stratégique, pilotage & métriques, développement commercial & growth marketing, IA raisonnée pour votre développement commercial.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -60,7 +60,7 @@
         /* TABS */
         .tabs-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             position: relative;
             z-index: 1;
@@ -88,6 +88,10 @@
 
         .offer-tab:nth-child(3) {
             animation-delay: 0.6s;
+        }
+
+        .offer-tab:nth-child(4) {
+            animation-delay: 0.7s;
         }
 
         .offer-tab:hover {
@@ -131,6 +135,10 @@
             color: var(--vert-light);
         }
 
+        .text-ia {
+            color: var(--blanc);
+        }
+
         .offer-tab.active::after {
             content: '';
             display: block;
@@ -150,6 +158,10 @@
 
         .offer-tab[data-tab="commerce"].active::after {
             background: var(--vert);
+        }
+
+        .offer-tab[data-tab="ia"].active::after {
+            background: linear-gradient(90deg, var(--mauve), var(--vert));
         }
 
         /* DETAILS */
@@ -195,6 +207,10 @@
 
         .content-header h1.text-green {
             color: var(--vert);
+        }
+
+        .content-header h1.text-ia {
+            color: var(--bleu-fonce);
         }
 
         .main-desc {
@@ -309,6 +325,10 @@
             background: var(--vert);
         }
 
+        .border-ia .detail-column li::before {
+            background: linear-gradient(135deg, var(--mauve), var(--vert));
+        }
+
         .final-note {
             background: var(--gris-clair);
             border-left: 4px solid var(--mauve);
@@ -318,6 +338,10 @@
             line-height: 1.7;
             color: var(--texte);
             margin-top: 24px;
+        }
+
+        .final-note + .final-note {
+            margin-top: 16px;
         }
 
         .final-note strong {
@@ -335,6 +359,10 @@
 
         .offer-content.border-green .content-header {
             border-bottom-color: var(--vert);
+        }
+
+        .offer-content.border-ia .content-header {
+            border-image: linear-gradient(90deg, var(--mauve), var(--vert)) 1;
         }
 
         .offer-cta {
@@ -393,6 +421,15 @@
 
         .btn-offer-green:hover {
             background: var(--vert-deep);
+        }
+
+        .btn-offer-ia {
+            background: linear-gradient(90deg, var(--mauve), var(--vert));
+            box-shadow: 0 6px 20px rgba(178, 116, 157, 0.3);
+        }
+
+        .btn-offer-ia:hover {
+            filter: brightness(0.95);
         }
 
         /* Responsive */
@@ -473,6 +510,13 @@
                             <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
                         </svg></div>
                     <h2 class="text-green">Développement commercial et Growth marketing</h2>
+                </div>
+                <div class="offer-tab" data-tab="ia" onclick="switchTab('ia')">
+                    <div class="tab-icon"><svg width="64" height="64" viewBox="0 0 24 24" fill="#D4A5C4">
+                            <path
+                                d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16z" />
+                        </svg></div>
+                    <h2 class="text-ia">IA raisonnée</h2>
                 </div>
             </div>
         </div>
@@ -677,6 +721,83 @@
                 </div>
             </div>
 
+            <!-- IA RAISONNÉE -->
+            <div id="content-ia" class="offer-content border-ia">
+                <div class="content-header">
+                    <h1 class="text-ia">IA raisonnée pour votre développement commercial</h1>
+                    <div class="main-desc">
+                        <p><strong>Mettre l'IA au service de vos ventes, sans perdre la main ni vos données.</strong>
+                        </p>
+                        <p>Cette offre s'adresse aux structures qui veulent gagner du temps commercial grâce à l'IA.
+                            Elle commence par un diagnostic court : où l'IA vous aide vraiment, avec quels outils et
+                            quels risques. Puis je la mets en place avec vous, lot par lot, connectée à vos outils, et
+                            votre équipe garde la décision.</p>
+                    </div>
+                    <div class="intro-summary">
+                        <div class="intro-summary-card">
+                            <h4>Pour qui ?</h4>
+                            <p>Structures à impact qui veulent s'outiller d'IA sans exposer leurs données ni trahir
+                                leurs valeurs.</p>
+                        </div>
+                        <div class="intro-summary-card">
+                            <h4>Avantages</h4>
+                            <p>Temps rendu au métier, outils maîtrisés, décisions humaines.</p>
+                        </div>
+                        <div class="intro-summary-card">
+                            <h4>Ce que je fais</h4>
+                            <p>Diagnostic IA, feuille de route, consignes, connecteurs, agents simples.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="details-grid">
+                    <div class="detail-column">
+                        <h3>Bénéfices clés</h3>
+                        <ul>
+                            <li>Savoir où l'IA vous fait gagner du temps, et où elle ne sert à rien</li>
+                            <li>Rendre du temps à l'écoute de vos clients, à la qualification, à la négociation</li>
+                            <li>Garder la maîtrise de vos données : vous savez ce qui part chez un fournisseur d'IA</li>
+                            <li>Choisir une IA à la taille du besoin, cohérente avec vos engagements écologiques</li>
+                            <li>Rendre votre équipe autonome sur ses outils</li>
+                        </ul>
+                        <h3>Ce que vous obtenez</h3>
+                        <ul>
+                            <li>Un diagnostic et une feuille de route IA en 2 à 3 jours : usages prioritaires, risques
+                                RGPD et AI Act, outils, priorités</li>
+                            <li>Des consignes et des modèles adaptés à votre méthode commerciale</li>
+                            <li>L'IA connectée à vos outils (CRM, documents, messagerie)</li>
+                            <li>De premiers agents simples, sous validation humaine</li>
+                            <li>Une transmission à l'équipe, pour pérenniser</li>
+                        </ul>
+                    </div>
+                    <div class="detail-column">
+                        <h3>Format de l'accompagnement</h3>
+                        <ul>
+                            <li>Diagnostic court (2 à 3 jours) : entretiens, revue des outils et des données</li>
+                            <li>Plan d'actions par lots, priorisé</li>
+                            <li>Mise en œuvre lot par lot, avec votre équipe</li>
+                            <li>Transmission des méthodes et des outils</li>
+                        </ul>
+                        <h3>Mes engagements</h3>
+                        <ul>
+                            <li>Je travaille avec les outils que vous avez ou choisissez, et je vous dis ce qui part
+                                chez un fournisseur d'IA.</li>
+                            <li>L'IA prépare, votre équipe relit, corrige et décide : rien ne part vers vos clients
+                                sans la validation d'une personne de votre équipe.</li>
+                        </ul>
+                        <div class="final-note">J'applique cette méthode à Bon Impact avec
+                            <a href="index.html#labo"><strong>Luna</strong></a>, l'assistante IA que je construis depuis
+                            la fin de l'été 2026.</div>
+                        <div class="final-note">Je recherche 3 structures pilotes, à conditions préférentielles, en
+                            échange d'un retour d'expérience.<br>👉 Accompagnement <strong>sur mesure</strong>, sur
+                            devis, adapté à la maturité numérique de la structure.</div>
+                    </div>
+                </div>
+                <div class="offer-cta">
+                    <p>Cette offre vous intéresse ? Discutons-en.</p><a href="mailto:jeremie.seguin@bonimpact.bzh"
+                        class="btn-offer btn-offer-ia">Prendre rendez-vous</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -708,7 +829,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 Bon Impact. Tous droits réservés.</p>
+                <p>© <span data-current-year>2026</span> Bon Impact. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -730,8 +851,13 @@
                     document.querySelector('.offer-details').scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 100);
             };
+
+            /* Open the tab named in the URL (e.g. offres.html#ia) */
+            var hash = window.location.hash.slice(1);
+            if (hash && document.getElementById('content-' + hash)) { window.switchTab(hash); }
         })();
     </script>
+    <script src="annees.js"></script>
 </body>
 
 </html>

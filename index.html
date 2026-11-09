@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bon Impact | Développement Commercial pour Structures à Impact</title>
+    <title>Bon Impact | Développement commercial et IA raisonnée</title>
     <meta name="description"
-        content="J'occupe des fonctions stratégiques et commerciales depuis 10 ans. J'accompagne les structures à impact dans leur croissance. Cadrage stratégique, pilotage et growth marketing.">
+        content="Dans le numérique depuis 2015, en fonctions stratégiques et commerciales depuis 2017. J'accompagne les structures à impact : cadrage, pilotage, développement commercial et usage raisonné de l'IA.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -291,7 +291,7 @@
 
         .stats-inner {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             position: relative;
             z-index: 1;
         }
@@ -500,7 +500,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 28px;
             margin-top: 72px;
             position: relative;
@@ -549,6 +549,10 @@
             background: var(--vert);
         }
 
+        .service-card:nth-child(4)::before {
+            background: linear-gradient(90deg, var(--mauve), var(--vert));
+        }
+
         .card-number {
             font-family: var(--font-display);
             font-size: 64px;
@@ -582,6 +586,11 @@
         .card-tag-green {
             background: rgba(169, 186, 133, 0.15);
             color: var(--vert-light);
+        }
+
+        .card-tag-ia {
+            background: linear-gradient(90deg, rgba(178, 116, 157, 0.18), rgba(169, 186, 133, 0.18));
+            color: var(--blanc);
         }
 
         .service-card h3 {
@@ -665,6 +674,99 @@
         .btn-green:hover {
             background: #b8c898;
             transform: translateY(-2px);
+        }
+
+        .btn-ia {
+            background: linear-gradient(90deg, var(--mauve-light), var(--vert-light));
+            color: var(--bleu-nuit);
+        }
+
+        .btn-ia:hover {
+            filter: brightness(1.06);
+            transform: translateY(-2px);
+        }
+
+
+        /* ==================================================================
+           LABO — Luna
+           ================================================================== */
+
+        .labo {
+            padding: 120px 0;
+            background: var(--creme);
+        }
+
+        .labo-head {
+            display: flex;
+            align-items: flex-start;
+            gap: 28px;
+            margin-top: 40px;
+        }
+
+        .labo-icon {
+            flex-shrink: 0;
+            width: 72px;
+            height: 72px;
+        }
+
+        .labo-intro {
+            font-size: 17px;
+            line-height: 1.75;
+            max-width: 760px;
+            margin: 0;
+        }
+
+        .labo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 56px;
+        }
+
+        .labo-card {
+            background: var(--blanc);
+            border: 1px solid var(--gris-moyen);
+            border-radius: 18px;
+            padding: 32px 28px;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .labo-card:hover {
+            border-color: var(--mauve-light);
+            box-shadow: 0 12px 32px rgba(46, 83, 104, 0.08);
+        }
+
+        .labo-card h3 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--bleu-fonce);
+            line-height: 1.35;
+            margin-bottom: 12px;
+        }
+
+        .labo-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .labo-foot {
+            margin-top: 40px;
+            padding: 24px 28px;
+            border-left: 4px solid var(--mauve);
+            background: var(--gris-clair);
+            border-radius: 0 12px 12px 0;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .labo-foot p {
+            margin: 0;
+        }
+
+        .labo-foot p + p {
+            margin-top: 8px;
         }
 
 
@@ -808,6 +910,18 @@
                 margin-right: auto;
                 margin-top: 60px;
             }
+
+            .stats-inner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-item:nth-child(2n)::after {
+                display: none;
+            }
+
+            .labo-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -837,6 +951,16 @@
 
             .hero-float-card {
                 display: none;
+            }
+
+            .labo-head {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .labo-icon {
+                width: 56px;
+                height: 56px;
             }
         }
     </style>
@@ -871,9 +995,10 @@
                 <div>
                     <div class="hero-tag">Développement commercial</div>
                     <h1>Donnez de <em>l'impact</em> à vos actions commerciales</h1>
-                    <p class="hero-lead">J'occupe des fonctions stratégiques et commerciales depuis 10 ans.
-                        J'accompagne les structures à impact dans leur croissance et l'obtention de résultats
-                        mesurables.</p>
+                    <p class="hero-lead">Je parle le langage des équipes techniques : j'ai été développeur, puis
+                        product owner. Et je pars toujours du terrain, avec les utilisateurs et les product owners,
+                        pour qu'un produit évolue par l'usage. J'accompagne les structures à impact dans leur
+                        croissance, et je les aide à tirer de l'IA ce qu'elle a vraiment d'utile.</p>
                     <div class="hero-actions">
                         <a href="mailto:jeremie.seguin@bonimpact.bzh" class="btn-hero-primary">Réservez un appel
                             gratuit</a>
@@ -891,7 +1016,7 @@
                     </div>
                     <div class="hero-float-card">
                         <div class="hero-float-number">20+</div>
-                        <div class="hero-float-label">Structures accompagnées</div>
+                        <div class="hero-float-label">Comptes clients adressés</div>
                     </div>
                 </div>
             </div>
@@ -903,16 +1028,20 @@
         <div class="container-wide">
             <div class="stats-inner">
                 <div class="stat-item">
-                    <div class="stat-number">10+</div>
+                    <div class="stat-number" data-years-since="2015-09">11</div>
                     <div class="stat-label">Années d'expérience</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">20+</div>
-                    <div class="stat-label">Structures accompagnées</div>
+                    <div class="stat-label">Comptes clients adressés</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Orienté résultats</div>
+                    <div class="stat-number">25</div>
+                    <div class="stat-label">Consultant·es IT que je dirigeais chez ALTEN</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Univers : grands comptes, service public, économie sociale et solidaire</div>
                 </div>
             </div>
         </div>
@@ -926,9 +1055,13 @@
             <div class="section-subtitle">Transformez votre stratégie en résultats concrets</div>
             <div class="about-grid">
                 <div class="about-text reveal">
-                    <p>Je suis <strong>Jérémie Seguin</strong>, freelance spécialisé en développement commercial depuis
-                        2022. Avec 10 ans d'expérience en postes stratégiques (2015–2025), j'accompagne les structures à
-                        chaque étape de leur croissance.</p>
+                    <p>Je suis <strong>Jérémie Seguin</strong>, freelance en développement commercial depuis 2022.
+                        Après mes débuts techniques (développeur logiciel et product owner), j'ai pris en 2017 des
+                        fonctions stratégiques et commerciales chez ALTEN, jusqu'à diriger une agence. Aujourd'hui,
+                        j'accompagne les structures à impact à chaque étape de leur croissance.</p>
+                    <p>L'IA prend une place croissante dans les métiers commerciaux : depuis avril 2026, je me forme
+                        pour l'appliquer à la stratégie et au développement commercial. J'en ai fait un outil concret :
+                        <a href="#labo"><strong>Luna</strong></a>, l'assistante IA de Bon Impact.</p>
                     <p>Mon approche ? <strong>Pragmatique, mesurable et adaptée</strong> à vos moyens. Je ne vous
                         propose pas de recettes miracles, mais des méthodes éprouvées pour clarifier vos priorités,
                         structurer vos décisions et générer des résultats.</p>
@@ -964,6 +1097,17 @@
                                 <p>Actions commerciales qui génèrent du CA</p>
                             </div>
                         </div>
+                        <div class="value-card">
+                            <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16z" />
+                                </svg></div>
+                            <div>
+                                <h4>IA raisonnée</h4>
+                                <p>L'IA prépare, l'humain relit, corrige et décide</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="about-visual reveal">
@@ -980,7 +1124,7 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-label">Mes services</div>
-            <div class="section-title">3 offres pour accélérer votre croissance</div>
+            <div class="section-title">4 offres pour accélérer votre croissance</div>
             <div class="section-subtitle">Choisissez l'accompagnement adapté à votre niveau de maturité</div>
             <div class="services-grid">
                 <div class="service-card reveal">
@@ -1022,6 +1166,19 @@
                     </div>
                     <a href="offres.html" class="btn-card btn-green">Découvrir l'offre</a>
                 </div>
+                <div class="service-card reveal">
+                    <div class="card-number">04</div>
+                    <span class="card-tag card-tag-ia">Pour s'outiller</span>
+                    <h3>IA raisonnée pour votre développement commercial</h3>
+                    <p class="card-desc">Repérez où l'IA vous fait vraiment gagner du temps, choisissez l'outil à la
+                        taille de la tâche, et gardez la main sur chaque décision.</p>
+                    <div class="card-benefits">
+                        <div class="benefit">Diagnostic et feuille de route en 2 à 3 jours</div>
+                        <div class="benefit">IA connectée à votre CRM et à vos documents</div>
+                        <div class="benefit">L'IA prépare, votre équipe relit, corrige et décide</div>
+                    </div>
+                    <a href="offres.html#ia" class="btn-card btn-ia">Découvrir l'offre</a>
+                </div>
             </div>
         </div>
     </section>
@@ -1030,34 +1187,101 @@
     <section class="parcours" id="parcours">
         <div class="container">
             <div class="section-label">Mon parcours</div>
-            <div class="section-title">10 ans d'expérience terrain</div>
+            <div class="section-title"><span data-years-since="2015-09">11</span> ans d'expérience terrain</div>
             <div class="section-subtitle">Du développement logiciel au business development, un parcours forgé par
                 l'action</div>
             <div class="timeline">
                 <div class="tl-item reveal">
+                    <span class="tl-dates">Avr 2026 — aujourd'hui</span>
+                    <h3>IA appliquée au développement commercial</h3>
+                    <div class="tl-company">Bon Impact</div>
+                    <p>Autoformation quotidienne : consignes (prompt engineering), connecteurs, agents, protocole MCP.
+                        Conception de Luna, l'assistante IA de Bon Impact, depuis la fin de l'été 2026.</p>
+                </div>
+                <div class="tl-item reveal">
                     <span class="tl-dates">Déc 2022 — Mars 2026</span>
-                    <h3>Chargé de déploiement</h3>
+                    <h3>Chargé de déploiement, mission freelance</h3>
                     <div class="tl-company">Mon Diag Artif · Ministère de la Transition Écologique</div>
                     <p>Service public numérique destiné aux collectivités pour mesurer l'artificialisation des sols.
                         Prospection, CRM, webinaires, newsletters, partenariats (ADEME, CNFPT, AMRF).</p>
-                    <span class="tl-highlight">170 000 diagnostics réalisés · +2 000 hectares préservés</span>
+                    <span class="tl-highlight">160 000+ diagnostics réalisés · +2 000 hectares préservés</span>
                 </div>
                 <div class="tl-item reveal">
-                    <span class="tl-dates">Nov 2020 — Avr 2023</span>
-                    <h3>Trésorier & Comité de suivi</h3>
+                    <span class="tl-dates">Nov 2020 — aujourd'hui</span>
+                    <h3>Engagement coopératif</h3>
                     <div class="tl-company">Breizhicoop · Épicerie coopérative</div>
-                    <p>Épicerie coopérative et participative de plus de 1 100 coopérateurs. Budget prévisionnel,
-                        recherche de subventions, AMI Rennes Métropole, suivi RH.</p>
+                    <p>Épicerie coopérative et participative de plus de 1 100 coopérateurs. Trésorier (2022-2023) :
+                        budget prévisionnel sur 3 ans, subventions, réponse à un AMI de Rennes Métropole. Comité de
+                        suivi salarié (2021-2022). Bénévole épicier depuis 2020.</p>
                     <span class="tl-highlight">+550 000 € de CA en 2024</span>
                 </div>
                 <div class="tl-item reveal">
                     <span class="tl-dates">Sep 2015 — Nov 2020</span>
-                    <h3>Business Manager → Responsable d'agence</h3>
+                    <h3>Développeur, product owner, ingénieur d'affaires, puis responsable d'agence</h3>
                     <div class="tl-company">ALTEN · Conseil & Ingénierie</div>
-                    <p>Développement de portefeuille client, prospection, closing, recrutement et management d'équipe
-                        consultants IT. Division Système d'Information, Réseaux & Télécom.</p>
-                    <span class="tl-highlight">Équipe de 4 à 25 consultants · 20+ clients</span>
+                    <p>Responsable d'une agence de 25 consultant·es en technologies de l'information (2019-2020).
+                        Développement de portefeuille client, prospection, closing, recrutement et management.
+                        Division Système d'Information, Réseaux & Télécom.</p>
+                    <span class="tl-highlight">Équipe de 4 à 25 consultant·es · 20+ comptes clients adressés</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LABO — Luna -->
+    <section class="labo" id="labo">
+        <div class="container">
+            <div class="section-label">Le labo Bon Impact</div>
+            <div class="section-title">Luna, l'assistante IA que je construis pour Bon Impact</div>
+            <div class="labo-head reveal">
+                <svg class="labo-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="lunaTile" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#C45A9C" />
+                            <stop offset="1" stop-color="#8BA840" />
+                        </linearGradient>
+                        <mask id="lunaCut">
+                            <rect width="64" height="64" fill="#fff" />
+                            <circle cx="41" cy="25" r="15" fill="#000" />
+                        </mask>
+                    </defs>
+                    <rect width="64" height="64" rx="15" fill="url(#lunaTile)" />
+                    <circle cx="30" cy="34" r="19" fill="#fff" mask="url(#lunaCut)" />
+                </svg>
+                <p class="labo-intro">Depuis la fin de l'été 2026, je construis Luna. Elle conseille, rédige et
+                    prépare ; je relis, je corrige, puis je décide. Au fil de l'usage, j'affine ses fiches et son
+                    contexte. Elle répond à partir de mes méthodes et de mes dossiers, pas de la seule culture
+                    générale d'un modèle.</p>
+            </div>
+            <div class="labo-grid">
+                <div class="labo-card reveal">
+                    <h3>Les données restent sur ma machine</h3>
+                    <p>Luna tourne sur mon ordinateur de travail, joignable seulement par un réseau privé. Aucune
+                        conversation ne part chez un fournisseur d'IA. Chaque nuit, une copie chiffrée part vers un
+                        stockage en ligne ; la clé qui l'ouvre n'est pas sur la machine.</p>
+                </div>
+                <div class="labo-card reveal">
+                    <h3>Un modèle à la taille du besoin</h3>
+                    <p>Un modèle moyen, qui tient sur un puissant ordinateur de bureau, appuyé sur une recherche
+                        documentaire soignée et mise à jour chaque nuit. Mon parti pris : un modèle moyen bien
+                        documenté bat un modèle plus gros mal documenté.</p>
+                </div>
+                <div class="labo-card reveal">
+                    <h3>Elle prépare, je relis et je décide</h3>
+                    <p>Toute écriture devient une carte à Valider / Refuser, inscrite dans un journal. Ses sources
+                        s'affichent sous chaque réponse.</p>
+                </div>
+                <div class="labo-card reveal">
+                    <h3>Pas d'IA quand elle ne sert à rien</h3>
+                    <p>Les demandes simples (« mes tâches », « à valider ») ont une réponse immédiate, sans faire
+                        tourner le modèle.</p>
+                </div>
+            </div>
+            <div class="labo-foot reveal">
+                <p>Pensée pour les organisations qui ne peuvent pas confier leurs données à un fournisseur d'IA :
+                    services publics, santé, juridique, PME qui protègent leurs clients.</p>
+                <p>Aujourd'hui outil interne de Bon Impact ; une version pour d'autres structures est à l'étude.
+                    Luna est en construction : elle n'agit pas encore seule à l'extérieur.</p>
             </div>
         </div>
     </section>
@@ -1101,7 +1325,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 Bon Impact. Tous droits réservés.</p>
+                <p>© <span data-current-year>2026</span> Bon Impact. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -1129,6 +1353,7 @@
             document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
         })();
     </script>
+    <script src="annees.js"></script>
 </body>
 
 </html>
