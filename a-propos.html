@@ -396,6 +396,80 @@
             line-height: 1.4;
         }
 
+        /* Frise : de la start-up d'État à la reprise */
+        .frise {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0 16px;
+            position: relative;
+        }
+
+        .frise::before {
+            content: '';
+            position: absolute;
+            top: 7px;
+            left: 8px;
+            right: 8px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gris-moyen), var(--bleu-clair), var(--vert));
+        }
+
+        .frise-etape {
+            position: relative;
+            padding-top: 28px;
+        }
+
+        .frise-etape::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--blanc);
+            border: 3px solid var(--gris-moyen);
+            box-sizing: border-box;
+        }
+
+        .frise-etape.ma-mission::before {
+            border-color: var(--bleu-clair);
+        }
+
+        .frise-etape.reprise::before {
+            background: var(--vert);
+            border-color: var(--vert);
+            box-shadow: 0 0 0 5px rgba(169, 186, 133, 0.25);
+        }
+
+        .frise-date {
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--bleu-fonce);
+            letter-spacing: 0.04em;
+            margin-bottom: 4px;
+        }
+
+        .tl-detail-block .frise-etape p {
+            font-size: 14px;
+            line-height: 1.55;
+            margin-bottom: 8px;
+        }
+
+        .frise-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: var(--vert);
+            color: var(--blanc);
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
         /* Role sub-blocks */
         .role-block {
             margin-top: 32px;
@@ -497,6 +571,26 @@
         }
 
         @media (max-width: 768px) {
+            .frise {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .frise::before {
+                top: 8px;
+                bottom: 8px;
+                left: 7px;
+                right: auto;
+                width: 2px;
+                height: auto;
+                background: linear-gradient(180deg, var(--gris-moyen), var(--bleu-clair), var(--vert));
+            }
+
+            .frise-etape {
+                padding-top: 0;
+                padding-left: 32px;
+            }
+
             .intro-cards {
                 grid-template-columns: 1fr;
             }
@@ -626,6 +720,23 @@
                             transition écologique destiné en priorité aux collectivités et aux services de l'État.</p><a
                             href="https://mondiagartif.beta.gouv.fr/" target="_blank" rel="noopener"
                             class="tl-link">Découvrir la plateforme →</a>
+                        <div class="frise">
+                            <div class="frise-etape">
+                                <div class="frise-date">2021</div>
+                                <p>Lancement en start-up d'État</p>
+                            </div>
+                            <div class="frise-etape ma-mission">
+                                <div class="frise-date">Déc 2022 — Mars 2026</div>
+                                <p>Ma mission : déploiement, indicateurs d'impact, adoption</p>
+                            </div>
+                            <div class="frise-etape reprise">
+                                <div class="frise-date">2026</div>
+                                <p>Repris par le Cerema et l'IGN</p>
+                                <span class="frise-badge">Service pérennisé</span>
+                            </div>
+                        </div>
+                        <p>Mon Diag Artif a prouvé son impact à l'échelle nationale, ce qui a conduit à sa reprise par
+                            deux opérateurs de l'État. J'ai contribué à cette preuve d'impact.</p>
                     </div>
                     <div class="tl-detail-block">
                         <h3>Mesures d'impacts</h3>
