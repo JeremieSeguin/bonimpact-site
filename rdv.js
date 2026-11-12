@@ -1,5 +1,5 @@
 /*
-    Prise de rendez-vous avec Cal.com (hébergement européen).
+    Prise de rendez-vous avec Cal.com.
     - [data-rdv] : bouton qui ouvre le calendrier par-dessus la page.
     - Le script de Cal.com n'est chargé qu'au premier clic.
     - Le href du bouton pointe vers la page de réservation : c'est le repli
@@ -8,7 +8,7 @@
 (function () {
     'use strict';
     var CAL_LINK = 'bonimpact/appel-decouverte';
-    var ORIGIN = 'https://app.cal.eu';
+    var ORIGIN = 'https://app.cal.com';
     var ready = false;
 
     function charger() {
