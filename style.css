@@ -432,6 +432,11 @@ footer a:hover {
     opacity: 0.5;
 }
 
+.footer-bottom a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 
 /* ==========================================================================
    9. ANIMATIONS
