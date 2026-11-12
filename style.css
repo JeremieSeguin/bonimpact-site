@@ -269,6 +269,7 @@ body::after {
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
+    white-space: nowrap;
     background: var(--bleu-fonce);
     color: var(--blanc);
     padding: 14px 28px;

@@ -43,7 +43,25 @@
         window.Cal('init', 'rdv', { origin: ORIGIN });
         window.Cal.ns.rdv('ui', {
             theme: 'light',
-            cssVarsPerTheme: { light: { 'cal-brand': '#2E5368' } },
+            // Couleurs de style.css : bleu-fonce, vert-light, creme, texte.
+            cssVarsPerTheme: {
+                light: {
+                    'cal-brand': '#2E5368',
+                    'cal-brand-emphasis': '#1B3344',
+                    'cal-brand-text': '#FFFFFF',
+                    'cal-bg': '#FAFAF7',
+                    'cal-bg-emphasis': '#E4EBD6',
+                    'cal-bg-subtle': '#F2F0ED',
+                    'cal-bg-muted': '#F2F0ED',
+                    'cal-border': '#D8D5D0',
+                    'cal-border-subtle': '#E8E5E0',
+                    'cal-border-booker': '#D8D5D0',
+                    'cal-text': '#2E3A40',
+                    'cal-text-emphasis': '#1B3344',
+                    'cal-text-subtle': '#5E6A70',
+                    'cal-text-muted': '#8A9499'
+                }
+            },
             hideEventTypeDetails: false
         });
     }
