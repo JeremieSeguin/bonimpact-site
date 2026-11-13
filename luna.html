@@ -79,10 +79,50 @@
             padding: 100px 0 40px;
         }
 
+        .recit-grille {
+            display: grid;
+            grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+            gap: 56px;
+            align-items: center;
+        }
+
         .recit-texte {
-            max-width: 760px;
             font-size: 17px;
             line-height: 1.8;
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        .demandes { display: grid; gap: 14px; }
+
+        .demande {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 14px;
+            align-items: center;
+            background: var(--blanc);
+            border: 1px solid var(--gris-moyen);
+            border-left: 5px solid var(--c);
+            border-radius: 14px;
+            padding: 16px 20px;
+        }
+
+        .demande q {
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--bleu-fonce);
+            font-size: 16px;
+            quotes: "«\00a0" "\00a0»";
+        }
+
+        .demande span {
+            font-size: 13px;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 999px;
+            background: var(--gris-clair);
+            color: var(--bleu-fonce);
+            white-space: nowrap;
         }
 
         .recit-texte p + p { margin-top: 16px; }
@@ -114,7 +154,11 @@
             font-size: 14px;
             line-height: 1.65;
             margin: 0;
+            text-align: justify;
+            hyphens: auto;
         }
+
+        .recit .section-subtitle, .carte .section-subtitle, .garde .section-subtitle { max-width: none; }
 
         .carte {
             background: var(--creme);
@@ -216,7 +260,8 @@
         }
 
         .detail {
-            margin-top: 32px;
+            margin-top: 16px;
+            animation: ouvrir 0.4s var(--ease-out-expo);
             background: var(--blanc);
             border: 1px solid var(--gris-moyen);
             border-radius: 18px;
@@ -256,6 +301,12 @@
         .puce.rodage { background: rgba(158, 187, 216, 0.25); color: var(--bleu-fonce); }
         .puce.essai { background: rgba(178, 116, 157, 0.15); color: var(--mauve-deep); }
         .puce.etude { border: 1px dashed var(--gris-moyen); color: var(--texte); opacity: 0.8; }
+
+        @keyframes ouvrir { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+
+        .chaine .detail, .socle .detail { grid-column: 1 / -1; margin-top: 0; }
+
+        @media (prefers-reduced-motion: reduce) { .detail { animation: none; } }
 
         .garde {
             background: var(--blanc);
@@ -297,6 +348,7 @@
             .chaine { grid-template-columns: repeat(4, minmax(0, 1fr)); }
             .chaine .famille::after { display: none; }
             .facons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .recit-grille { grid-template-columns: minmax(0, 1fr); gap: 32px; }
         }
 
         @media (max-width: 640px) {
@@ -304,6 +356,9 @@
             .detail { padding: 22px 18px; }
             .detail li { grid-template-columns: auto minmax(0, 1fr); }
             .detail li .puce { grid-column: 2; justify-self: start; }
+            .recit-texte { text-align: left; }
+            .demande { grid-template-columns: minmax(0, 1fr); }
+            .demande span { justify-self: start; }
         }
     </style>
 </head>
@@ -347,19 +402,26 @@
         <div class="container">
             <div class="section-label">La démarche</div>
             <div class="section-title">Une IA utile ne répond pas à tout de la même façon</div>
+            <div class="recit-grille">
             <div class="recit-texte reveal">
                 <p>Depuis la fin de l'été 2026, je construis Luna pour mon propre travail commercial. Très vite,
-                    une évidence : demander « mes tâches du jour », « comment fixer mes prix » ou « prépare mon
-                    rendez-vous de demain », ce n'est pas la même chose. Leur confier le même traitement, c'est
+                    une évidence : demander « mes tâches du jour », « comment fixer mes prix » ou « prépare mon
+                    rendez-vous de demain », ce n'est pas la même chose. Leur confier le même traitement, c'est
                     perdre du temps, ou de la fiabilité.</p>
-                <p>Alors, pour chaque usage, je me pose une question : qui y répond le mieux ? Parfois l'IA,
+                <p>Alors, pour chaque usage, je me pose une question : qui y répond le mieux ? Parfois l'IA,
                     parfois pas du tout. C'est le cœur de ce que j'appelle l'IA sur mesure. L'IA prépare,
                     l'humain relit, corrige et décide.</p>
+            </div>
+            <div class="demandes reveal" aria-label="Trois demandes, trois façons d'y répondre">
+                <div class="demande" style="--c: var(--f-code)"><q>Mes tâches du jour</q><span>Le code</span></div>
+                <div class="demande" style="--c: var(--f-conversation)"><q>Comment fixer mes prix ?</q><span>La conversation</span></div>
+                <div class="demande" style="--c: var(--f-competence)"><q>Prépare mon rendez-vous de demain</q><span>Une compétence</span></div>
+            </div>
             </div>
             <div class="facons">
                 <div class="facon reveal" style="--c: var(--f-code)">
                     <h3>Le code</h3>
-                    <p>La réponse est un fait : mes tâches, ce qui attend ma validation. Exact et immédiat, sans
+                    <p>La réponse est un fait : mes tâches, ce qui attend ma validation. Exact et immédiat, sans
                         faire tourner l'IA.</p>
                 </div>
                 <div class="facon reveal" style="--c: var(--f-conversation)">
@@ -368,12 +430,12 @@
                 </div>
                 <div class="facon reveal" style="--c: var(--f-competence)">
                     <h3>La compétence</h3>
-                    <p>Une tâche qui revient, avec une forme attendue : une note de rendez-vous, une relance, une
+                    <p>Une tâche qui revient, avec une forme attendue : une note de rendez-vous, une relance, une
                         lettre. Le résultat est vérifié avant de m'arriver.</p>
                 </div>
                 <div class="facon reveal" style="--c: var(--f-ecran)">
                     <h3>L'écran</h3>
-                    <p>Voir ou valider beaucoup d'un coup : un tableau fait mieux qu'une conversation.</p>
+                    <p>Voir ou valider beaucoup d'un coup : un tableau fait mieux qu'une conversation.</p>
                 </div>
                 <div class="facon reveal" style="--c: var(--f-agent)">
                     <h3>L'agent</h3>
@@ -388,7 +450,7 @@
         <div class="container">
             <div class="section-label">La carte</div>
             <div class="section-title">Chaque étape de la vente, et qui s'en charge</div>
-            <div class="section-subtitle">Chaque carré est un usage. Sa couleur dit qui y répond aujourd’hui, ou qui y répondra ; un carré
+            <div class="section-subtitle">Chaque carré est un usage. Sa couleur dit qui y répond aujourd’hui, ou qui y répondra ; un carré
                 vide, un usage encore à l'étude. Choisissez une étape pour voir le détail.</div>
             <div class="carte-aide" id="aide"></div>
 
@@ -398,8 +460,6 @@
             <div class="chaine" id="chaine"></div>
             <div class="bande">Au quotidien</div>
             <div class="socle" id="socle"></div>
-
-            <div class="detail" id="detail" aria-live="polite"></div>
         </div>
     </section>
 
@@ -408,12 +468,12 @@
         <div class="container">
             <div class="section-label">Les garde-fous</div>
             <div class="section-title">Ce que Luna ne fait pas</div>
-            <div class="section-subtitle">Ces limites ne dépendent pas de la bonne volonté de l'IA : c'est le code qui
+            <div class="section-subtitle">Ces limites ne dépendent pas de la bonne volonté de l'IA : c'est le code qui
                 les tient.</div>
             <ul id="garde"></ul>
             <div class="ou-en-est reveal">
-                <p>Aujourd'hui outil interne de Bon Impact ; une version pour d'autres structures est à l'étude.
-                    Luna est en construction : elle n'agit pas encore seule à l'extérieur.</p>
+                <p>Aujourd'hui outil interne de Bon Impact ; une version pour d'autres structures est à l'étude.
+                    Luna est en construction : elle n'agit pas encore seule à l'extérieur.</p>
                 <p>Carte à jour au <span id="date-carte">13 novembre 2026</span>.</p>
             </div>
         </div>
@@ -423,7 +483,7 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-inner reveal">
-                <h2>Et chez vous, qui devrait répondre ?</h2>
+                <h2>Et chez vous, qui devrait répondre ?</h2>
                 <p>Parlons de vos usages lors d'un appel gratuit de 30 minutes. Sans engagement.</p>
                 <a href="https://cal.com/bonimpact/appel-decouverte" data-rdv class="btn-cta">Réserver mon appel gratuit</a>
             </div>
@@ -469,7 +529,7 @@
             var nav = document.getElementById('nav');
             window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 60); });
 
-            var DONNEES = {"usages": [{"usage": "Définir sa cible et son client idéal", "etape": "Connaître son marché", "mieux": "Conversation", "etat": "En service"}, {"usage": "Clarifier son positionnement et ses offres", "etape": "Connaître son marché", "mieux": "Conversation", "etat": "En service"}, {"usage": "Fixer ses prix", "etape": "Connaître son marché", "mieux": "Conversation", "etat": "En service"}, {"usage": "Enregistrer un nouveau contact ou une organisation", "etape": "Prospecter", "mieux": "Conversation", "etat": "En service"}, {"usage": "Importer une liste de prospects (fichier, export LinkedIn)", "etape": "Prospecter", "mieux": "Écran", "etat": "À l'étude"}, {"usage": "Écrire un premier message d'approche (mail, LinkedIn)", "etape": "Prospecter", "mieux": "Conversation", "etat": "En service"}, {"usage": "Relancer un prospect resté sans réponse", "etape": "Prospecter", "mieux": "Compétence", "etat": "En essai"}, {"usage": "Trouver le bon interlocuteur dans une organisation", "etape": "Prospecter", "mieux": "Conversation", "etat": "En rodage"}, {"usage": "Compléter une fiche (coordonnées, fonction, site)", "etape": "Prospecter", "mieux": "Conversation", "etat": "En service"}, {"usage": "Préparer un appel de prospection", "etape": "Prospecter", "mieux": "Compétence", "etat": "En essai"}, {"usage": "Préparer un rendez-vous de découverte", "etape": "Qualifier", "mieux": "Compétence", "etat": "En essai"}, {"usage": "Faire le compte rendu d'un échange", "etape": "Qualifier", "mieux": "Compétence", "etat": "En essai"}, {"usage": "Noter un fait rapide sur une fiche", "etape": "Qualifier", "mieux": "Conversation", "etat": "En service"}, {"usage": "Qualifier une opportunité (budget, décideur, besoin, délai)", "etape": "Qualifier", "mieux": "Conversation", "etat": "En service"}, {"usage": "Faire avancer l'étape d'un projet", "etape": "Qualifier", "mieux": "Conversation", "etat": "En service"}, {"usage": "Poser une question sur ses fiches", "etape": "Qualifier", "mieux": "Conversation", "etat": "En service"}, {"usage": "Rédiger une proposition commerciale", "etape": "Proposer", "mieux": "Conversation", "etat": "En service"}, {"usage": "Chiffrer un devis", "etape": "Proposer", "mieux": "Code", "etat": "En rodage"}, {"usage": "Préparer la présentation d'une proposition", "etape": "Proposer", "mieux": "Compétence", "etat": "En essai"}, {"usage": "Préparer une négociation", "etape": "Négocier", "mieux": "Compétence", "etat": "En essai"}, {"usage": "Répondre à une objection", "etape": "Négocier", "mieux": "Conversation", "etat": "En service"}, {"usage": "Marquer une affaire gagnée ou perdue, avec sa raison", "etape": "Conclure", "mieux": "Conversation", "etat": "En rodage"}, {"usage": "Être alerté avant une échéance ou un renouvellement", "etape": "Suivre et fidéliser", "mieux": "Agent", "etat": "À l'étude"}, {"usage": "Rédiger la lettre d'infos", "etape": "Communiquer", "mieux": "Compétence", "etat": "En essai"}, {"usage": "Écrire un post LinkedIn", "etape": "Communiquer", "mieux": "Conversation", "etat": "En service"}, {"usage": "Écrire un article ou une page pour le référencement", "etape": "Communiquer", "mieux": "Conversation", "etat": "En service"}, {"usage": "Préparer un webinaire", "etape": "Communiquer", "mieux": "Conversation", "etat": "En service"}, {"usage": "Voir ce qu'il y a à faire aujourd'hui", "etape": "Piloter l'activité", "mieux": "Écran", "etat": "En service"}, {"usage": "Voir ce qu'il y a à valider", "etape": "Piloter l'activité", "mieux": "Écran", "etat": "En service"}, {"usage": "Créer une tâche ou un rappel", "etape": "Piloter l'activité", "mieux": "Conversation", "etat": "En service"}, {"usage": "Connaître ses chiffres (pipeline, montants, prévisionnel)", "etape": "Piloter l'activité", "mieux": "Code", "etat": "En rodage"}, {"usage": "Garder trace d'une décision de l'activité", "etape": "Piloter l'activité", "mieux": "Conversation", "etat": "À l'étude"}, {"usage": "Lire et rattacher ses mails", "etape": "Piloter l'activité", "mieux": "Agent", "etat": "À l'étude"}, {"usage": "Savoir ce qui a changé pendant la nuit", "etape": "Piloter l'activité", "mieux": "Écran", "etat": "À l'étude"}, {"usage": "Confier une tâche à un collègue", "etape": "Piloter l'activité", "mieux": "Conversation", "etat": "En service"}, {"usage": "Savoir ce que Luna sait faire", "etape": "Faire vivre Luna", "mieux": "Code", "etat": "En service"}, {"usage": "Poser une question générale, hors métier", "etape": "Faire vivre Luna", "mieux": "Conversation", "etat": "En service"}, {"usage": "Régler Luna (casquettes, réponses immédiates)", "etape": "Faire vivre Luna", "mieux": "Écran", "etat": "En service"}, {"usage": "Ajouter un document ou une pièce jointe", "etape": "Faire vivre Luna", "mieux": "Écran", "etat": "En service"}, {"usage": "Signaler une mauvaise réponse", "etape": "Faire vivre Luna", "mieux": "Écran", "etat": "En service"}, {"usage": "Ajouter un champ ou un type de fiche", "etape": "Faire vivre Luna", "mieux": "Conversation", "etat": "En service"}, {"usage": "Faire retenir une préférence à Luna", "etape": "Faire vivre Luna", "mieux": "Conversation", "etat": "À l'étude"}, {"usage": "Garder une façon de faire comme compétence", "etape": "Faire vivre Luna", "mieux": "Compétence", "etat": "À l'étude"}, {"usage": "Basculer sur le bon espace", "etape": "Faire vivre Luna", "mieux": "Code", "etat": "À l'étude"}], "garde": ["Envoyer un message sans que je l'aie validé", "Publier seule sur un réseau social", "Inventer un chiffre, un témoignage ou un échange", "Effacer une donnée sans retour possible : elle archive", "Lire les données d'une autre structure"]};
+            var DONNEES = {"usages": [{"usage": "Définir sa cible et son client idéal", "etape": "Connaître son marché", "mieux": "Conversation", "etat": "En service"}, {"usage": "Clarifier son positionnement et ses offres", "etape": "Connaître son marché", "mieux": "Conversation", "etat": "En service"}, {"usage": "Fixer ses prix", "etape": "Connaître son marché", "mieux": "Conversation", "etat": "En service"}, {"usage": "Enregistrer un nouveau contact ou une organisation", "etape": "Prospecter", "mieux": "Conversation", "etat": "En service"}, {"usage": "Importer une liste de prospects (fichier, export LinkedIn)", "etape": "Prospecter", "mieux": "Écran", "etat": "À l'étude"}, {"usage": "Écrire un premier message d'approche (mail, LinkedIn)", "etape": "Prospecter", "mieux": "Conversation", "etat": "En service"}, {"usage": "Relancer un prospect resté sans réponse", "etape": "Prospecter", "mieux": "Compétence", "etat": "En essai"}, {"usage": "Trouver le bon interlocuteur dans une organisation", "etape": "Prospecter", "mieux": "Conversation", "etat": "En rodage"}, {"usage": "Compléter une fiche (coordonnées, fonction, site)", "etape": "Prospecter", "mieux": "Conversation", "etat": "En service"}, {"usage": "Préparer un appel de prospection", "etape": "Prospecter", "mieux": "Compétence", "etat": "En essai"}, {"usage": "Préparer un rendez-vous de découverte", "etape": "Qualifier", "mieux": "Compétence", "etat": "En essai"}, {"usage": "Faire le compte rendu d'un échange", "etape": "Qualifier", "mieux": "Compétence", "etat": "En essai"}, {"usage": "Noter un fait rapide sur une fiche", "etape": "Qualifier", "mieux": "Conversation", "etat": "En service"}, {"usage": "Qualifier une opportunité (budget, décideur, besoin, délai)", "etape": "Qualifier", "mieux": "Conversation", "etat": "En service"}, {"usage": "Faire avancer l'étape d'un projet", "etape": "Qualifier", "mieux": "Conversation", "etat": "En service"}, {"usage": "Poser une question sur ses fiches", "etape": "Qualifier", "mieux": "Conversation", "etat": "En service"}, {"usage": "Rédiger une proposition commerciale", "etape": "Proposer", "mieux": "Conversation", "etat": "En service"}, {"usage": "Chiffrer un devis", "etape": "Proposer", "mieux": "Code", "etat": "En rodage"}, {"usage": "Préparer la présentation d'une proposition", "etape": "Proposer", "mieux": "Compétence", "etat": "En essai"}, {"usage": "Préparer une négociation", "etape": "Négocier", "mieux": "Compétence", "etat": "En essai"}, {"usage": "Répondre à une objection", "etape": "Négocier", "mieux": "Conversation", "etat": "En service"}, {"usage": "Marquer une affaire gagnée ou perdue, avec sa raison", "etape": "Conclure", "mieux": "Conversation", "etat": "En rodage"}, {"usage": "Être alerté avant une échéance ou un renouvellement", "etape": "Suivre et fidéliser", "mieux": "Agent", "etat": "À l'étude"}, {"usage": "Rédiger la lettre d'infos", "etape": "Communiquer", "mieux": "Compétence", "etat": "En essai"}, {"usage": "Écrire un post LinkedIn", "etape": "Communiquer", "mieux": "Conversation", "etat": "En service"}, {"usage": "Écrire un article ou une page pour le référencement", "etape": "Communiquer", "mieux": "Conversation", "etat": "En service"}, {"usage": "Préparer un webinaire", "etape": "Communiquer", "mieux": "Conversation", "etat": "En service"}, {"usage": "Voir ce qu'il y a à faire aujourd'hui", "etape": "Piloter l'activité", "mieux": "Écran", "etat": "En service"}, {"usage": "Voir ce qu'il y a à valider", "etape": "Piloter l'activité", "mieux": "Écran", "etat": "En service"}, {"usage": "Créer une tâche ou un rappel", "etape": "Piloter l'activité", "mieux": "Conversation", "etat": "En service"}, {"usage": "Connaître ses chiffres (pipeline, montants, prévisionnel)", "etape": "Piloter l'activité", "mieux": "Code", "etat": "En rodage"}, {"usage": "Garder trace d'une décision de l'activité", "etape": "Piloter l'activité", "mieux": "Conversation", "etat": "À l'étude"}, {"usage": "Lire et rattacher ses mails", "etape": "Piloter l'activité", "mieux": "Agent", "etat": "À l'étude"}, {"usage": "Savoir ce qui a changé pendant la nuit", "etape": "Piloter l'activité", "mieux": "Écran", "etat": "À l'étude"}, {"usage": "Confier une tâche à un collègue", "etape": "Piloter l'activité", "mieux": "Conversation", "etat": "En service"}, {"usage": "Savoir ce que Luna sait faire", "etape": "Faire vivre Luna", "mieux": "Code", "etat": "En service"}, {"usage": "Poser une question générale, hors métier", "etape": "Faire vivre Luna", "mieux": "Conversation", "etat": "En service"}, {"usage": "Régler Luna (casquettes, réponses immédiates)", "etape": "Faire vivre Luna", "mieux": "Écran", "etat": "En service"}, {"usage": "Ajouter un document ou une pièce jointe", "etape": "Faire vivre Luna", "mieux": "Écran", "etat": "En service"}, {"usage": "Signaler une mauvaise réponse", "etape": "Faire vivre Luna", "mieux": "Écran", "etat": "En service"}, {"usage": "Ajouter un champ ou un type de fiche", "etape": "Faire vivre Luna", "mieux": "Conversation", "etat": "En service"}, {"usage": "Faire retenir une préférence à Luna", "etape": "Faire vivre Luna", "mieux": "Conversation", "etat": "À l'étude"}, {"usage": "Garder une façon de faire comme compétence", "etape": "Faire vivre Luna", "mieux": "Compétence", "etat": "À l'étude"}, {"usage": "Basculer sur le bon espace", "etape": "Faire vivre Luna", "mieux": "Code", "etat": "À l'étude"}], "garde": ["Envoyer un message sans que je l'aie validé", "Publier seule sur un réseau social", "Inventer un chiffre, un témoignage ou un échange", "Effacer une donnée sans retour possible : elle archive", "Lire les données d'une autre structure"]};
             var FACONS = {
                 'Code': ['--f-code', 'Le code'], 'Conversation': ['--f-conversation', 'La conversation'],
                 'Compétence': ['--f-competence', 'Une compétence'], 'Écran': ['--f-ecran', "L'écran"],
@@ -492,31 +552,54 @@
                 return '<span><i class="point" style="--c: var(' + FACONS[k][0] + ')"></i>' + FACONS[k][1] + '</span>';
             }).join('') + '<span><i class="point etude" style="--c: var(--bleu-fonce)"></i>À l\'étude</span>';
 
+            function zoneDe(nom) {
+                return FAMILLES.filter(function (f) { return f[0] === nom; })[0][1];
+            }
+
             function dessiner() {
                 ['haut', 'chaine', 'socle'].forEach(function (zone) {
                     var n = 0;
                     document.getElementById(zone).innerHTML = FAMILLES.filter(function (f) { return f[1] === zone; }).map(function (f) {
                         var u = de(f[0]);
                         var numero = zone === 'chaine' ? '<span class="numero">ÉTAPE ' + (++n) + '</span>' : '';
-                        return '<button type="button" class="famille" data-famille="' + echap(f[0]) + '" aria-pressed="' + (choisie === f[0]) + '">' +
+                        return '<button type="button" class="famille" data-famille="' + echap(f[0]) + '" aria-expanded="' + (choisie === f[0]) + '" aria-pressed="' + (choisie === f[0]) + '">' +
                             numero + '<h3>' + echap(f[0]) + '</h3><div class="points">' + u.map(point).join('') + '</div></button>';
                     }).join('');
                 });
-                var u = de(choisie);
-                document.getElementById('detail').innerHTML = '<h3>' + echap(choisie) + '</h3><ul>' + u.map(function (x) {
+                var ancien = document.getElementById('detail');
+                if (ancien) ancien.remove();
+                if (!choisie) return;
+                var detail = document.createElement('div');
+                detail.className = 'detail';
+                detail.id = 'detail';
+                detail.setAttribute('aria-live', 'polite');
+                detail.innerHTML = '<h3>' + echap(choisie) + '</h3><ul>' + de(choisie).map(function (x) {
                     return '<li>' + point(x) + '<span>' + echap(x.usage) + '</span>' +
                         '<span class="puce facon-puce">' + FACONS[x.mieux][1] + '</span>' +
                         '<span class="puce ' + ETATS[x.etat] + '">' + x.etat + '</span></li>';
                 }).join('') + '</ul>';
+                // Sous sa rangée ; sur téléphone, juste sous l'étape touchée.
+                var zone = document.getElementById(zoneDe(choisie));
+                if (window.matchMedia('(max-width: 640px)').matches) {
+                    var carte = Array.prototype.filter.call(zone.querySelectorAll('.famille'), function (b) { return b.getAttribute('data-famille') === choisie; })[0];
+                    carte.insertAdjacentElement('afterend', detail);
+                } else {
+                    zone.insertAdjacentElement('afterend', detail);
+                }
             }
             document.getElementById('carte').addEventListener('click', function (e) {
                 var b = e.target.closest('.famille');
                 if (!b) return;
-                choisie = b.getAttribute('data-famille');
+                var nom = b.getAttribute('data-famille');
+                choisie = choisie === nom ? null : nom;
                 dessiner();
-                if (window.matchMedia('(max-width: 1080px)').matches)
-                    document.getElementById('detail').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                var d = document.getElementById('detail');
+                if (d && d.getBoundingClientRect().bottom > window.innerHeight)
+                    d.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             });
+            var etroit = window.matchMedia('(max-width: 640px)');
+            (etroit.addEventListener ? etroit.addEventListener('change', dessiner) : etroit.addListener(dessiner));
+            // Seulement au passage du seuil : le défilement sur téléphone redimensionne sans cesse la fenêtre.
             document.getElementById('garde').innerHTML = DONNEES.garde.map(function (g) { return '<li>' + echap(g) + '</li>'; }).join('');
             dessiner();
 
