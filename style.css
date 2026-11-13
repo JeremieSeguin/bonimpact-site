@@ -476,32 +476,25 @@ body::after {
 
 .luna-puce {
     display: inline-flex;
-    align-items: center;
+    align-items: baseline;
     gap: 10px;
     margin-top: 14px;
-    background: var(--mauve);
-    color: var(--blanc);
+    color: var(--mauve);
     font-weight: 700;
-    padding: 8px 16px 8px 8px;
-    border-radius: 999px;
     font-size: 14px;
-    box-shadow: 0 6px 18px rgba(178, 116, 157, 0.35);
-    transition: all 0.3s var(--ease-out-expo);
+    transition: color 0.3s ease, gap 0.3s var(--ease-out-expo);
 }
 
 .luna-puce:hover {
-    background: var(--mauve-deep);
-    transform: translateX(4px);
+    color: var(--mauve-deep);
+    gap: 14px;
 }
 
 .luna-puce .neuf {
-    font-size: 10px;
-    letter-spacing: 0.1em;
+    font-size: 11px;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    background: var(--blanc);
-    color: var(--mauve-deep);
-    border-radius: 999px;
-    padding: 3px 8px;
+    color: var(--mauve-light);
 }
 
 @media (max-width: 760px) {
