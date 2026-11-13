@@ -477,30 +477,32 @@ body::after {
 .luna-puce {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    margin-top: 10px;
-    background: rgba(178, 116, 157, 0.12);
-    color: var(--mauve-deep);
+    gap: 10px;
+    margin-top: 14px;
+    background: var(--mauve);
+    color: var(--blanc);
     font-weight: 700;
-    padding: 6px 14px;
+    padding: 8px 16px 8px 8px;
     border-radius: 999px;
     font-size: 14px;
+    box-shadow: 0 6px 18px rgba(178, 116, 157, 0.35);
     transition: all 0.3s var(--ease-out-expo);
 }
 
-.luna-puce:hover { background: var(--mauve); color: var(--blanc); }
+.luna-puce:hover {
+    background: var(--mauve-deep);
+    transform: translateX(4px);
+}
 
 .luna-puce .neuf {
     font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    background: var(--mauve);
-    color: var(--blanc);
-    border-radius: 4px;
-    padding: 2px 6px;
+    background: var(--blanc);
+    color: var(--mauve-deep);
+    border-radius: 999px;
+    padding: 3px 8px;
 }
-
-.luna-puce:hover .neuf { background: var(--blanc); color: var(--mauve); }
 
 @media (max-width: 760px) {
     .luna-encart, .luna-encart.large { grid-template-columns: minmax(0, 1fr); }
