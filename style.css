@@ -374,6 +374,140 @@ body::after {
 
 
 /* ==========================================================================
+   7 bis. LIENS VERS LUNA
+   L'encart bleu nuit avec la carte en miniature (accueil, Mes expériences)
+   et la pastille de la frise du parcours. Données : luna-donnees.js.
+   ========================================================================== */
+
+.luna-encart {
+    --f-code: var(--bleu-clair);
+    --f-conversation: #6FA0CF;
+    --f-competence: var(--mauve-light);
+    --f-ecran: var(--vert);
+    --f-agent: #D9B26B;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 28px;
+    align-items: center;
+    margin-top: 24px;
+    background: var(--bleu-nuit);
+    color: var(--blanc);
+    border-radius: 18px;
+    padding: 28px 30px;
+    transition: all 0.4s var(--ease-out-expo);
+}
+
+.luna-encart:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(27, 51, 68, 0.25);
+}
+
+.luna-encart.large {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    margin-top: 40px;
+    padding: 34px 36px;
+}
+
+.luna-encart .etiq {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mauve-light);
+}
+
+.luna-encart .titre {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--blanc);
+    margin: 8px 0;
+}
+
+.luna-encart p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 1;
+}
+
+.luna-encart .aller {
+    display: inline-block;
+    margin-top: 14px;
+    color: var(--mauve-light);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.luna-mini {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 6px;
+    align-items: end;
+}
+
+.luna-mini div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 4px;
+    align-items: center;
+}
+
+.luna-mini i {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    background: var(--c);
+    border: 2px solid var(--c);
+}
+
+.luna-mini i.etude { background: transparent; }
+
+.luna-mini small {
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.55);
+    text-align: center;
+    line-height: 1.2;
+    margin-top: 4px;
+}
+
+.luna-puce {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    background: rgba(178, 116, 157, 0.12);
+    color: var(--mauve-deep);
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    transition: all 0.3s var(--ease-out-expo);
+}
+
+.luna-puce:hover { background: var(--mauve); color: var(--blanc); }
+
+.luna-puce .neuf {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--mauve);
+    color: var(--blanc);
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
+.luna-puce:hover .neuf { background: var(--blanc); color: var(--mauve); }
+
+@media (max-width: 760px) {
+    .luna-encart, .luna-encart.large { grid-template-columns: minmax(0, 1fr); }
+}
+
+
+/* ==========================================================================
    8. FOOTER
    ========================================================================== */
 
