@@ -142,6 +142,29 @@
             border-top: 5px solid var(--c);
         }
 
+        .facon-tete {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .facon-tete h3 { margin-bottom: 0; }
+
+        .tech {
+            font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: var(--bleu-fonce);
+            background: var(--gris-clair);
+            border: 1px solid var(--gris-moyen);
+            border-radius: 6px;
+            padding: 2px 7px;
+            white-space: nowrap;
+        }
+
         .facon h3 {
             font-family: var(--font-display);
             font-size: 17px;
@@ -425,11 +448,11 @@
                         faire tourner l'IA.</p>
                 </div>
                 <div class="facon reveal" style="--c: var(--f-conversation)">
-                    <h3>La conversation</h3>
+                    <div class="facon-tete"><h3>La conversation</h3><span class="tech">RAG</span></div>
                     <p>Il faut juger ou conseiller. L'IA raisonne à partir de mes méthodes et de mes dossiers.</p>
                 </div>
                 <div class="facon reveal" style="--c: var(--f-competence)">
-                    <h3>La compétence</h3>
+                    <div class="facon-tete"><h3>La compétence</h3><span class="tech">Skill</span></div>
                     <p>Une tâche qui revient, avec une forme attendue : une note de rendez-vous, une relance, une
                         lettre. Le résultat est vérifié avant de m'arriver.</p>
                 </div>
@@ -438,7 +461,7 @@
                     <p>Voir ou valider beaucoup d'un coup : un tableau fait mieux qu'une conversation.</p>
                 </div>
                 <div class="facon reveal" style="--c: var(--f-agent)">
-                    <h3>L'agent</h3>
+                    <div class="facon-tete"><h3>L'agent</h3><span class="tech">MCP / API</span></div>
                     <p>Agir à l'extérieur ou à heure fixe, toujours après ma validation. À l'étude.</p>
                 </div>
             </div>
