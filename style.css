@@ -426,7 +426,9 @@ body::after {
     margin: 8px 0;
 }
 
-.luna-encart p {
+/* « a.luna-encart » : plus précis que les styles de texte des pages (.role-block p de
+   Mes expériences rendait ce texte gris foncé sur bleu nuit). */
+a.luna-encart p {
     color: rgba(255, 255, 255, 0.75);
     font-size: 14px;
     line-height: 1.6;
