@@ -346,7 +346,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 100px;
-            align-items: center;
+            align-items: start;
             margin-top: 64px;
         }
 
@@ -360,6 +360,19 @@
         .about-text p strong {
             color: var(--bleu-fonce);
             font-weight: 700;
+        }
+
+        .about-text a {
+            color: var(--bleu-fonce);
+            text-decoration: underline;
+            text-decoration-color: var(--mauve);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+            transition: color 0.2s;
+        }
+
+        .about-text a:hover {
+            color: var(--mauve);
         }
 
         /* Value cards */
