@@ -230,11 +230,11 @@
         /* Floating badge */
         .hero-float-card {
             position: absolute;
-            bottom: -24px;
-            left: -40px;
+            bottom: -20px;
+            right: -32px;
             background: var(--blanc);
-            padding: 20px 28px;
-            border-radius: 16px;
+            padding: 12px 18px;
+            border-radius: 12px;
             box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
             z-index: 3;
             animation: float 6s ease-in-out infinite;
@@ -242,19 +242,19 @@
 
         .hero-float-number {
             font-family: var(--font-display);
-            font-size: 36px;
+            font-size: 22px;
             font-weight: 800;
             color: var(--mauve);
             line-height: 1;
         }
 
         .hero-float-label {
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             color: var(--bleu-fonce);
-            margin-top: 4px;
+            margin-top: 3px;
         }
 
         @keyframes float {
@@ -902,7 +902,7 @@
             }
 
             .hero-float-card {
-                left: 0;
+                right: 0;
             }
 
             .about-grid {
