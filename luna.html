@@ -356,6 +356,14 @@
             line-height: 1.6;
         }
 
+        .garde-titre {
+            margin-top: 32px;
+            font-size: 17px;
+            color: var(--mauve-deep);
+        }
+
+        .garde .garde-titre + ul { margin-top: 14px; }
+
         .garde li::before { content: 'Jamais : '; font-weight: 700; color: var(--mauve-deep); }
 
         .ou-en-est {
@@ -500,9 +508,11 @@
         <div class="container">
             <div class="section-label">Les garde-fous</div>
             <div class="section-title">Ce que Luna ne fait pas</div>
-            <div class="section-subtitle">Ces limites ne dépendent pas de la bonne volonté de l'IA : c'est le code qui
-                les tient.</div>
+            <div class="section-subtitle">Ces limites ne dépendent pas de la bonne volonté de l'IA.</div>
+            <h3 class="garde-titre">Tenu par le code</h3>
             <ul id="garde"></ul>
+            <h3 class="garde-titre">Tenu par ma relecture</h3>
+            <ul id="garde-relecture"></ul>
             <div class="ou-en-est reveal">
                 <p>Aujourd'hui outil interne de Bon Impact ; une version pour d'autres structures est à l'étude.
                     Luna est en construction : elle n'agit pas encore seule à l'extérieur.</p>
@@ -633,7 +643,11 @@
             var etroit = window.matchMedia('(max-width: 640px)');
             (etroit.addEventListener ? etroit.addEventListener('change', dessiner) : etroit.addListener(dessiner));
             // Seulement au passage du seuil : le défilement sur téléphone redimensionne sans cesse la fenêtre.
-            document.getElementById('garde').innerHTML = DONNEES.garde.map(function (g) { return '<li>' + echap(g) + '</li>'; }).join('');
+            function lister(id, lignes) {
+                document.getElementById(id).innerHTML = lignes.map(function (g) { return '<li>' + echap(g) + '</li>'; }).join('');
+            }
+            lister('garde', DONNEES.garde);
+            lister('garde-relecture', DONNEES.garde_relecture);
             dessiner();
 
             var observer = new IntersectionObserver(function (entries) {

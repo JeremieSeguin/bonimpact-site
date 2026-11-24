@@ -274,9 +274,11 @@ window.LUNA = {
  "garde": [
   "Envoyer un message sans que je l'aie validé",
   "Publier seule sur un réseau social",
-  "Inventer un chiffre, un témoignage ou un échange",
   "Effacer une donnée sans retour possible : elle archive",
   "Lire les données d'une autre structure"
+ ],
+ "garde_relecture": [
+  "Inventer un chiffre, un témoignage ou un échange : elle peut se tromper, rien ne sort sans que je l'aie relu."
  ]
 };
 
